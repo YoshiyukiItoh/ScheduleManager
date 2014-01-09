@@ -10,9 +10,9 @@ using System.IO;
 
 namespace ScheduleManager
 {
-    public partial class Form1 : Form
+    public partial class MainForm : BaseForm
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
             //string stCurrentDir = System.IO.Directory.GetCurrentDirectory();
