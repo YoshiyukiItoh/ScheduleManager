@@ -19,9 +19,9 @@ namespace ScheduleManager
         /// </summary>
         /// <param name="filePath">ファイルパス</param>
         /// <returns>List ファイル内容</returns>
-        public static string readConfig(string filePath)
+        public static string readConfig(string filePath, string tag)
         {
-            return FileConfigReader.readConfig(filePath, Encoding.UTF8);
+            return FileConfigReader.readConfig(filePath, tag, Encoding.UTF8);
         }
     }
 }

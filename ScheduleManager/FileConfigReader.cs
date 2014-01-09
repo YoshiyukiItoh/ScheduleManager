@@ -49,8 +49,12 @@ namespace ScheduleManager
         /// <param name="filePath">ファイルパス</param>
         /// <param name="encoding">読み込みエンコーディング</param>
         /// <returns>ファイル内容</returns>
-        public static string readConfig(string filePath, Encoding encoding)
+        public static string readConfig(string filePath, string tag, Encoding encoding)
         {
+            bool readFlg = false;
+            string START_TAG = String.Concat(new string[] {Common.ANGLE_BRACKET_BEGIN,tag,Common.ANGLE_BRACKET_END});
+            string END_TAG = String.Concat(new string[] {Common.ANGLE_BRACKET_BEGIN,Common.SLASH,tag,Common.ANGLE_BRACKET_END});
+
             StringBuilder retStr = new StringBuilder();
             // ファイルの存在チェック
             if (!File.Exists(filePath))
@@ -62,8 +66,22 @@ namespace ScheduleManager
             while (sReader.Peek() >= 0)
             {
                 string strBuf = sReader.ReadLine();
-                retStr.Append(strBuf);
-                retStr.Append(Common.lineSeparater);
+                // 終了タグ判定
+                if (String.Equals(strBuf, END_TAG))
+                {
+                    break;
+                }
+                // 読み込みフラグチェック
+                if (readFlg)
+                {
+                    retStr.Append(strBuf);
+                    retStr.Append(Common.LINE_SEPARATOR);
+                }
+                // 開始タグ判定
+                if (String.Equals(strBuf,START_TAG))
+                {
+                    readFlg = !readFlg;
+                }
             }
 
             // streamのクローズ

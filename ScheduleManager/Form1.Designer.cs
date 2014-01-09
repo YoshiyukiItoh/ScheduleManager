@@ -31,10 +31,10 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.foreLabel = new System.Windows.Forms.Label();
-            this.foreTextBox = new System.Windows.Forms.TextBox();
-            this.afterLabel = new System.Windows.Forms.Label();
             this.afterTextBox = new System.Windows.Forms.TextBox();
+            this.afterLabel = new System.Windows.Forms.Label();
+            this.foreTextBox = new System.Windows.Forms.TextBox();
+            this.foreLabel = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.SuspendLayout();
@@ -74,22 +74,13 @@
             this.tabPage2.Text = "今日のタスク";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // foreLabel
+            // afterTextBox
             // 
-            this.foreLabel.AutoSize = true;
-            this.foreLabel.Location = new System.Drawing.Point(9, 7);
-            this.foreLabel.Name = "foreLabel";
-            this.foreLabel.Size = new System.Drawing.Size(29, 12);
-            this.foreLabel.TabIndex = 0;
-            this.foreLabel.Text = "午前";
-            // 
-            // foreTextBox
-            // 
-            this.foreTextBox.Location = new System.Drawing.Point(6, 22);
-            this.foreTextBox.Multiline = true;
-            this.foreTextBox.Name = "foreTextBox";
-            this.foreTextBox.Size = new System.Drawing.Size(260, 316);
-            this.foreTextBox.TabIndex = 1;
+            this.afterTextBox.Location = new System.Drawing.Point(278, 22);
+            this.afterTextBox.Multiline = true;
+            this.afterTextBox.Name = "afterTextBox";
+            this.afterTextBox.Size = new System.Drawing.Size(260, 290);
+            this.afterTextBox.TabIndex = 3;
             // 
             // afterLabel
             // 
@@ -100,13 +91,22 @@
             this.afterLabel.TabIndex = 2;
             this.afterLabel.Text = "午後";
             // 
-            // afterTextBox
+            // foreTextBox
             // 
-            this.afterTextBox.Location = new System.Drawing.Point(278, 22);
-            this.afterTextBox.Multiline = true;
-            this.afterTextBox.Name = "afterTextBox";
-            this.afterTextBox.Size = new System.Drawing.Size(260, 316);
-            this.afterTextBox.TabIndex = 3;
+            this.foreTextBox.Location = new System.Drawing.Point(6, 22);
+            this.foreTextBox.Multiline = true;
+            this.foreTextBox.Name = "foreTextBox";
+            this.foreTextBox.Size = new System.Drawing.Size(260, 290);
+            this.foreTextBox.TabIndex = 1;
+            // 
+            // foreLabel
+            // 
+            this.foreLabel.AutoSize = true;
+            this.foreLabel.Location = new System.Drawing.Point(9, 7);
+            this.foreLabel.Name = "foreLabel";
+            this.foreLabel.Size = new System.Drawing.Size(29, 12);
+            this.foreLabel.TabIndex = 0;
+            this.foreLabel.Text = "午前";
             // 
             // Form1
             // 

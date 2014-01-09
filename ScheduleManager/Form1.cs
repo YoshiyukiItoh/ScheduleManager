@@ -17,7 +17,8 @@ namespace ScheduleManager
             InitializeComponent();
             //string stCurrentDir = System.IO.Directory.GetCurrentDirectory();
             //foreTextBox.Text = FileConfig.readConfig(Path.Combine(stCurrentDir,"a.txt"));
-            foreTextBox.Text = FileConfig.readConfig("a.txt");
+            foreTextBox.Text = FileConfig.readConfig("a.txt", Common.FORE_TAG);
+            afterTextBox.Text = FileConfig.readConfig("a.txt", Common.AFTER_TAG);
         }
     }
 }
