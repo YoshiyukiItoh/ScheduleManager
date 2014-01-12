@@ -8,6 +8,10 @@ namespace ScheduleManager
 {
     public class BaseForm : Form
     {
+        // 当日タスク格納変数
+        protected TaskList todayTask;
+        // 全タスク格納変数
+
         public BaseForm()
         {
         }

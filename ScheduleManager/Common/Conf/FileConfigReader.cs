@@ -135,5 +135,68 @@ namespace ScheduleManager
 
             return retStr.ToString();
         }
+
+        public static TaskList readTodayTask(string filePath, Encoding encoding)
+        {
+            bool foreReadFlg = false;
+            bool afterReadFlg = false;
+            string FORE_START_TAG = String.Concat(new string[] { Common.ANGLE_BRACKET_BEGIN, Common.FORE_TAG, Common.ANGLE_BRACKET_END });
+            string FORE_END_TAG = String.Concat(new string[] { Common.ANGLE_BRACKET_BEGIN, Common.SLASH, Common.FORE_TAG, Common.ANGLE_BRACKET_END });
+            string AFTER_START_TAG = String.Concat(new string[] { Common.ANGLE_BRACKET_BEGIN, Common.AFTER_TAG, Common.ANGLE_BRACKET_END });
+            string AFTER_END_TAG = String.Concat(new string[] { Common.ANGLE_BRACKET_BEGIN, Common.SLASH, Common.AFTER_TAG, Common.ANGLE_BRACKET_END });
+
+            // 返却変数
+            List<TaskState> foreTask = new List<TaskState>();
+            List<TaskState> afterTask = new List<TaskState>();
+
+            // ファイルの読み込み処理
+            StreamReader sReader = new StreamReader(filePath, encoding);
+            while (sReader.Peek() >= 0)
+            {
+                string strBuf = sReader.ReadLine();
+                // 午前
+                // 終了タグ判定
+                if (String.Equals(strBuf, FORE_END_TAG))
+                {
+                    foreReadFlg = false;
+                    continue;
+                }
+                // 読み込みフラグチェック
+                if (foreReadFlg)
+                {
+                    bool checkState = strBuf.IndexOf(Common.STATE_IMPERFECT) >= 0 ? false : true;
+                    foreTask.Add(new TaskState(strBuf,checkState));
+                }
+                // 開始タグ判定
+                if (String.Equals(strBuf, FORE_START_TAG))
+                {
+                    foreReadFlg = true;
+                    continue;
+                }
+
+                // 午後
+                // 終了タグ判定
+                if (String.Equals(strBuf, AFTER_END_TAG))
+                {
+                    afterReadFlg = false;
+                    continue;
+                }
+                // 読み込みフラグチェック
+                if (afterReadFlg)
+                {
+                    bool checkState = strBuf.IndexOf(Common.STATE_IMPERFECT) >= 0 ? false : true;
+                    afterTask.Add(new TaskState(strBuf, checkState));
+                }
+                // 開始タグ判定
+                if (String.Equals(strBuf, AFTER_START_TAG))
+                {
+                    afterReadFlg = true;
+                    continue;
+                }
+            }
+            // streamのクローズ
+            sReader.Close();
+            return new TaskList(foreTask,afterTask);
+        }
     }
 }

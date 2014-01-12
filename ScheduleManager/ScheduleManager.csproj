@@ -52,6 +52,8 @@
     <Compile Include="Common\Common.cs" />
     <Compile Include="Common\Conf\FileConfig.cs" />
     <Compile Include="Common\Conf\FileConfigReader.cs" />
+    <Compile Include="Common\TaskList.cs" />
+    <Compile Include="Common\TaskState.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
