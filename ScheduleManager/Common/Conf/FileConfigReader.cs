@@ -146,8 +146,8 @@ namespace ScheduleManager
             string AFTER_END_TAG = String.Concat(new string[] { Common.ANGLE_BRACKET_BEGIN, Common.SLASH, Common.AFTER_TAG, Common.ANGLE_BRACKET_END });
 
             // 返却変数
-            List<TaskState> foreTask = new List<TaskState>();
-            List<TaskState> afterTask = new List<TaskState>();
+            List<TaskElement> foreTask = new List<TaskElement>();
+            List<TaskElement> afterTask = new List<TaskElement>();
 
             // ファイルの読み込み処理
             StreamReader sReader = new StreamReader(filePath, encoding);
@@ -165,7 +165,7 @@ namespace ScheduleManager
                 if (foreReadFlg)
                 {
                     bool checkState = strBuf.IndexOf(Common.STATE_IMPERFECT) >= 0 ? false : true;
-                    foreTask.Add(new TaskState(strBuf,checkState));
+                    foreTask.Add(new TaskElement(strBuf,checkState));
                 }
                 // 開始タグ判定
                 if (String.Equals(strBuf, FORE_START_TAG))
@@ -185,7 +185,7 @@ namespace ScheduleManager
                 if (afterReadFlg)
                 {
                     bool checkState = strBuf.IndexOf(Common.STATE_IMPERFECT) >= 0 ? false : true;
-                    afterTask.Add(new TaskState(strBuf, checkState));
+                    afterTask.Add(new TaskElement(strBuf, checkState));
                 }
                 // 開始タグ判定
                 if (String.Equals(strBuf, AFTER_START_TAG))

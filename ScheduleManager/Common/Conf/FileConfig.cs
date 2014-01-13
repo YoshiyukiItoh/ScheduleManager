@@ -23,5 +23,15 @@ namespace ScheduleManager
         {
             return FileConfigReader.readTodayTask(filePath, Encoding.UTF8);
         }
+
+        /// <summary>
+        /// 指定したtaskListをUTF-8エンコードで書き込む
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <param name="taskList"></param>
+        public static void writeTaskList(string filePath, TaskList taskList)
+        {
+            FileConfigWriter.writeConfig(filePath, taskList, Encoding.UTF8);
+        }
     }
 }

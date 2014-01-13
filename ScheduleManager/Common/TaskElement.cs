@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ScheduleManager
 {
-    public class TaskState
+    public class TaskElement
     {
         private string  task;
         private bool checkState;
@@ -13,9 +13,18 @@ namespace ScheduleManager
         /// <summary>
         /// コンストラクタ
         /// </summary>
-        /// <param name="task">当日タスクの1行</param>
+        /// <param name="task">タスクの1行</param>
+        public TaskElement(string task)
+        {
+            this.task = task;
+        }
+
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        /// <param name="task">タスクの1行</param>
         /// <param name="checkState">■:true、□:false</param>
-        public TaskState(string task, bool checkState)
+        public TaskElement(string task, bool checkState)
         {
             this.task = task;
             this.checkState = checkState;

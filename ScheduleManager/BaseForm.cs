@@ -11,6 +11,11 @@ namespace ScheduleManager
         // 当日タスク格納変数
         protected TaskList todayTask;
         // 全タスク格納変数
+        // protected 
+        // アプリの起動日付
+        protected string today;
+        // 編集する日付一覧
+        protected string[] editDateList;
 
         public BaseForm()
         {
