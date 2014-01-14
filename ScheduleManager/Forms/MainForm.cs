@@ -33,7 +33,6 @@ namespace ScheduleManager
             SetAllTasksConfig();
             SetTodayTaskConfig(today);
             updateDisplayItem();
-            createDateLabel.Text = today + createDateLabel.Text;
         }
 
         private void SetAllTasksConfig()
@@ -236,35 +235,6 @@ namespace ScheduleManager
             CreateNewScheduleForm cnsf = new CreateNewScheduleForm(base.todayTask, base.todayDate);
             cnsf.ShowDialog();
             readTodayTaskList(base.todayDate);
-        }
-
-        private void createNewScheduleButton_Click(object sender, EventArgs e)
-        {
-            string foreTXT = foreNoonTB.Text;
-            string[] foreAryData = foreTXT.Split(new string[] { Common.LINE_SEPARATOR }, StringSplitOptions.None);
-            string afterTXT = afterNoonTB.Text;
-            string[] afterAryData = afterTXT.Split(new string[] { Common.LINE_SEPARATOR }, StringSplitOptions.None);
-
-            List<TaskElement> foreList = new List<TaskElement>();
-            foreach (string foreData in foreAryData)
-            {
-                bool checkstate = foreData.IndexOf(Common.STATE_IMPERFECT) >= 0 ? false : true;
-                foreList.Add(new TaskElement(foreData, checkstate));
-            }
-
-            List<TaskElement> afterList = new List<TaskElement>();
-            foreach (string afterData in afterAryData)
-            {
-                bool checkstate = afterData.IndexOf(Common.STATE_IMPERFECT) >= 0 ? false : true;
-                afterList.Add(new TaskElement(afterData, checkstate));
-            }
-
-            todayTask = new TaskList(foreList, afterList);
-
-            FileConfig.writeTaskList(Path.Combine(new string[] { Common.TASKS_DIR, base.todayDate + Common.TXT_EXTENTION }), base.todayTask);
-
-            foreNoonTB.Text = String.Empty;
-            afterNoonTB.Text = String.Empty;
         }
 
         private void refreshButton_Click(object sender, EventArgs e)
