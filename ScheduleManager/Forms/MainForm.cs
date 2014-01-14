@@ -29,9 +29,10 @@ namespace ScheduleManager
         {
             // システム日付取得(yyyy-mm-dd)
             string today = Common.getSystemDate();
-            base.today = today;
+            base.todayDate = today;
             SetAllTasksConfig();
             SetTodayTaskConfig(today);
+            updateDisplayItem();
             createDateLabel.Text = today + createDateLabel.Text;
         }
 
@@ -106,23 +107,23 @@ namespace ScheduleManager
                 // checkされている項目修正
                 if (foreCheckedIndices.IndexOf(i) >= 0)
                 {
-                    this.todayTask.ForeTaskBlock[i].CheckState = true;
+                    base.todayTask.ForeTaskBlock[i].CheckState = true;
                     // 未完了"□"なら修正
-                    if (this.todayTask.ForeTaskBlock[i].Task.IndexOf(Common.STATE_IMPERFECT) >= 0)
+                    if (base.todayTask.ForeTaskBlock[i].Task.IndexOf(Common.STATE_IMPERFECT) >= 0)
                     {
-                        this.todayTask.ForeTaskBlock[i].Task
-                            = this.todayTask.ForeTaskBlock[i].Task.Replace(Common.STATE_IMPERFECT, Common.STATE_COMPLETE);
+                        base.todayTask.ForeTaskBlock[i].Task
+                            = base.todayTask.ForeTaskBlock[i].Task.Replace(Common.STATE_IMPERFECT, Common.STATE_COMPLETE);
                     }
                 }
                 // checkされていない項目修正
                 else
                 {
-                    this.todayTask.ForeTaskBlock[i].CheckState = false;
+                    base.todayTask.ForeTaskBlock[i].CheckState = false;
                     // 完了"■"なら修正
-                    if (this.todayTask.ForeTaskBlock[i].Task.IndexOf(Common.STATE_COMPLETE) >= 0)
+                    if (base.todayTask.ForeTaskBlock[i].Task.IndexOf(Common.STATE_COMPLETE) >= 0)
                     {
-                        this.todayTask.ForeTaskBlock[i].Task
-                            = this.todayTask.ForeTaskBlock[i].Task.Replace(Common.STATE_COMPLETE, Common.STATE_IMPERFECT);
+                        base.todayTask.ForeTaskBlock[i].Task
+                            = base.todayTask.ForeTaskBlock[i].Task.Replace(Common.STATE_COMPLETE, Common.STATE_IMPERFECT);
                     }
                 }
             }
@@ -136,23 +137,23 @@ namespace ScheduleManager
                 // checkされている項目修正
                 if (afterCheckedIndices.IndexOf(i) >= 0)
                 {
-                    this.todayTask.AfterTaskBlock[i].CheckState = true;
+                    base.todayTask.AfterTaskBlock[i].CheckState = true;
                     // 未完了"□"なら修正
-                    if (this.todayTask.AfterTaskBlock[i].Task.IndexOf(Common.STATE_IMPERFECT) >= 0)
+                    if (base.todayTask.AfterTaskBlock[i].Task.IndexOf(Common.STATE_IMPERFECT) >= 0)
                     {
-                        this.todayTask.AfterTaskBlock[i].Task
-                            = this.todayTask.AfterTaskBlock[i].Task.Replace(Common.STATE_IMPERFECT, Common.STATE_COMPLETE);
+                        base.todayTask.AfterTaskBlock[i].Task
+                            = base.todayTask.AfterTaskBlock[i].Task.Replace(Common.STATE_IMPERFECT, Common.STATE_COMPLETE);
                     }
                 }
                 // checkされていない項目修正
                 else
                 {
-                    this.todayTask.AfterTaskBlock[i].CheckState = false;
+                    base.todayTask.AfterTaskBlock[i].CheckState = false;
                     // 完了"■"なら修正
-                    if (this.todayTask.AfterTaskBlock[i].Task.IndexOf(Common.STATE_COMPLETE) >= 0)
+                    if (base.todayTask.AfterTaskBlock[i].Task.IndexOf(Common.STATE_COMPLETE) >= 0)
                     {
-                        this.todayTask.AfterTaskBlock[i].Task
-                            = this.todayTask.AfterTaskBlock[i].Task.Replace(Common.STATE_COMPLETE, Common.STATE_IMPERFECT);
+                        base.todayTask.AfterTaskBlock[i].Task
+                            = base.todayTask.AfterTaskBlock[i].Task.Replace(Common.STATE_COMPLETE, Common.STATE_IMPERFECT);
                     }
                 }
             }
@@ -160,7 +161,8 @@ namespace ScheduleManager
             // 当日タスク更新
             updateTodayTaskList();
             // ファイル反映
-            FileConfig.writeTaskList(Path.Combine(new string[] { Common.TASKS_DIR, base.today + Common.TXT_EXTENTION }), base.todayTask);
+            FileConfig.writeTaskList(Path.Combine(new string[] { Common.TASKS_DIR, base.todayDate + Common.TXT_EXTENTION }), base.todayTask);
+            updateDisplayItem();
         }
 
         private void readTodayTaskList(string today)
@@ -178,21 +180,25 @@ namespace ScheduleManager
             List<TaskElement> afterList = taskList.AfterTaskBlock;
 
             // クラス変数に反映
-            base.todayTask.ForeTaskBlock = foreList;
-            base.todayTask.AfterTaskBlock = afterList;
+            base.todayTask = new TaskList(foreList, afterList);
+            //base.todayTask.ForeTaskBlock = foreList;
+            //base.todayTask.AfterTaskBlock = afterList;
 
             // ListBoxに反映
             // 午前
+            foreCBL.Items.Clear();
             foreach (TaskElement ts in foreList)
             {
                 foreCBL.Items.Add(ts.Task, ts.CheckState);
             }
 
             // 午後
+            afterCBL.Items.Clear();
             foreach (TaskElement ts in afterList)
             {
                 afterCBL.Items.Add(ts.Task, ts.CheckState);
             }
+            updateDisplayItem();
         }
 
         private void updateTodayTaskList()
@@ -217,6 +223,7 @@ namespace ScheduleManager
             {
                 afterCBL.Items.Add(ts.Task, ts.CheckState);
             }
+            updateDisplayItem();
         }
 
         /// <summary>
@@ -226,8 +233,9 @@ namespace ScheduleManager
         /// <param name="e"></param>
         private void createNewSucheduleButton_Click(object sender, EventArgs e)
         {
-            CreateNewScheduleForm cnsf = new CreateNewScheduleForm();
+            CreateNewScheduleForm cnsf = new CreateNewScheduleForm(base.todayTask, base.todayDate);
             cnsf.ShowDialog();
+            readTodayTaskList(base.todayDate);
         }
 
         private void createNewScheduleButton_Click(object sender, EventArgs e)
@@ -253,12 +261,10 @@ namespace ScheduleManager
 
             todayTask = new TaskList(foreList, afterList);
 
-            FileConfig.writeTaskList(Path.Combine(new string[] { Common.TASKS_DIR, base.today + Common.TXT_EXTENTION }),base.todayTask);
+            FileConfig.writeTaskList(Path.Combine(new string[] { Common.TASKS_DIR, base.todayDate + Common.TXT_EXTENTION }), base.todayTask);
 
             foreNoonTB.Text = String.Empty;
             afterNoonTB.Text = String.Empty;
-
-            return;
         }
 
         private void refreshButton_Click(object sender, EventArgs e)
@@ -266,5 +272,30 @@ namespace ScheduleManager
             updateTodayTaskList();
         }
 
+        private void updateDisplayItem()
+        {
+            if (base.todayTask == null)
+            {
+                this.alertLabel.Visible = true;
+                this.createNewSucheduleButton.Text = "新規作成";
+                this.afterAchievementLevel.Text = " 0/ 0   0%";
+                this.foreAchievementLevel.Text = " 0/ 0   0%";
+            }
+            else
+            {
+                this.alertLabel.Visible = false;
+                this.createNewSucheduleButton.Text = "編集";
+                
+                // 要素数カウント
+                int cntAllFore = base.todayTask.ForeTaskBlock.Count;
+                int cntAllAfter = base.todayTask.AfterTaskBlock.Count;
+                // チェック数カウント
+                int cntFore = base.todayTask.CountForeTaskLevel();
+                int cntAfter = base.todayTask.CountAfterTaskLevel();
+
+                this.foreAchievementLevel.Text = String.Format("{0:D2}/{1:D2} {2,3}%", cntFore, cntAllFore, cntFore * 100 / cntAllFore);
+                this.afterAchievementLevel.Text = String.Format("{0:D2}/{1:D2} {2,3}%", cntAfter, cntAllAfter, cntAfter * 100 / cntAllAfter);
+            }
+        }
     }
 }

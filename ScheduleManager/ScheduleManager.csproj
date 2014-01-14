@@ -46,25 +46,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseForm.cs">
+    <Compile Include="Forms\BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Common\Common.cs" />
     <Compile Include="Common\Conf\FileConfig.cs" />
     <Compile Include="Common\Conf\FileConfigReader.cs" />
     <Compile Include="Common\Conf\FileConfigWriter.cs" />
-    <Compile Include="Common\TaskList.cs" />
-    <Compile Include="Common\TaskElement.cs" />
+    <Compile Include="Data\TaskList.cs" />
+    <Compile Include="Data\TaskElement.cs" />
     <Compile Include="Forms\CreateNewScheduleForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\CreateNewScheduleForm.Designer.cs">
       <DependentUpon>CreateNewScheduleForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -72,7 +72,7 @@
     <EmbeddedResource Include="Forms\CreateNewScheduleForm.resx">
       <DependentUpon>CreateNewScheduleForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

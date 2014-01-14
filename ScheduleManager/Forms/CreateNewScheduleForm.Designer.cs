@@ -102,7 +102,6 @@
             this.Controls.Add(this.createDateLabel);
             this.Name = "CreateNewScheduleForm";
             this.Text = "CreateNewScheduleForm";
-            this.Load += new System.EventHandler(this.CreateNewScheduleForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

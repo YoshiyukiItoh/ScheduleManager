@@ -53,5 +53,31 @@ namespace ScheduleManager
             foreTaskBlock[pos].CheckState = state;
             foreTaskBlock[pos].Task = foreTaskBlock[pos].Task.Replace(before_str, replace_str);
         }
+
+        public int CountForeTaskLevel()
+        {
+            int retCnt = 0;
+            foreach(TaskElement taskElement in foreTaskBlock)
+            {
+                if (taskElement.Task.IndexOf(Common.STATE_COMPLETE) >= 0)
+                {
+                    retCnt++;
+                }
+            }
+            return retCnt;
+        }
+
+        public int CountAfterTaskLevel()
+        {
+            int retCnt = 0;
+            foreach (TaskElement taskElement in AfterTaskBlock)
+            {
+                if (taskElement.Task.IndexOf(Common.STATE_COMPLETE) >= 0)
+                {
+                    retCnt++;
+                }
+            }
+            return retCnt;
+        }
     }
 }

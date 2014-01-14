@@ -65,5 +65,15 @@ namespace ScheduleManager
         {
             return str == Common.ALL_TASK_FILE;
         }
+
+        public static string TaskBlockToString(List<TaskElement> taskBlock)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach(TaskElement taskElement in taskBlock)
+            {
+                sb.Append(taskElement.Task + Common.LINE_SEPARATOR);
+            }
+            return sb.ToString();
+        }
     }
 }

@@ -32,6 +32,8 @@
             this.allTaskTab = new System.Windows.Forms.TabPage();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.todayTaskTab = new System.Windows.Forms.TabPage();
+            this.afterAchievementLevel = new System.Windows.Forms.Label();
+            this.foreAchievementLevel = new System.Windows.Forms.Label();
             this.createNewSucheduleButton = new System.Windows.Forms.Button();
             this.taskUpdateButton = new System.Windows.Forms.Button();
             this.alertLabel = new System.Windows.Forms.Label();
@@ -87,6 +89,8 @@
             // 
             // todayTaskTab
             // 
+            this.todayTaskTab.Controls.Add(this.afterAchievementLevel);
+            this.todayTaskTab.Controls.Add(this.foreAchievementLevel);
             this.todayTaskTab.Controls.Add(this.createNewSucheduleButton);
             this.todayTaskTab.Controls.Add(this.taskUpdateButton);
             this.todayTaskTab.Controls.Add(this.alertLabel);
@@ -104,13 +108,31 @@
             this.todayTaskTab.Text = "当日タスク";
             this.todayTaskTab.UseVisualStyleBackColor = true;
             // 
+            // afterAchievementLevel
+            // 
+            this.afterAchievementLevel.AutoSize = true;
+            this.afterAchievementLevel.Location = new System.Drawing.Point(341, 230);
+            this.afterAchievementLevel.Name = "afterAchievementLevel";
+            this.afterAchievementLevel.Size = new System.Drawing.Size(57, 12);
+            this.afterAchievementLevel.TabIndex = 12;
+            this.afterAchievementLevel.Text = "xx/xx xx%";
+            // 
+            // foreAchievementLevel
+            // 
+            this.foreAchievementLevel.AutoSize = true;
+            this.foreAchievementLevel.Location = new System.Drawing.Point(341, 33);
+            this.foreAchievementLevel.Name = "foreAchievementLevel";
+            this.foreAchievementLevel.Size = new System.Drawing.Size(57, 12);
+            this.foreAchievementLevel.TabIndex = 11;
+            this.foreAchievementLevel.Text = "xx/xx xx%";
+            // 
             // createNewSucheduleButton
             // 
             this.createNewSucheduleButton.Location = new System.Drawing.Point(11, 420);
             this.createNewSucheduleButton.Name = "createNewSucheduleButton";
             this.createNewSucheduleButton.Size = new System.Drawing.Size(75, 23);
             this.createNewSucheduleButton.TabIndex = 10;
-            this.createNewSucheduleButton.Text = "新規作成";
+            this.createNewSucheduleButton.Text = "####";
             this.createNewSucheduleButton.UseVisualStyleBackColor = true;
             this.createNewSucheduleButton.Click += new System.EventHandler(this.createNewSucheduleButton_Click);
             // 
@@ -296,6 +318,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox foreNoonTB;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label afterAchievementLevel;
+        private System.Windows.Forms.Label foreAchievementLevel;
     }
 }
 
