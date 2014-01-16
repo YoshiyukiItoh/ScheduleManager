@@ -101,7 +101,7 @@
             this.Controls.Add(this.foreLabel);
             this.Controls.Add(this.createDateLabel);
             this.Name = "CreateNewScheduleForm";
-            this.Text = "CreateNewScheduleForm";
+            this.Text = "CreateNewSchedule";
             this.ResumeLayout(false);
             this.PerformLayout();
 

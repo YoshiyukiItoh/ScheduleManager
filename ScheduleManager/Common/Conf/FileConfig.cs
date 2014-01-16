@@ -21,7 +21,7 @@ namespace ScheduleManager
         /// <returns>List ファイル内容</returns>
         public static TaskList readTaskList(string filePath)
         {
-            return FileConfigReader.readTodayTask(filePath, Encoding.UTF8);
+            return FileConfigReader.readTodayTask(filePath, new UTF8Encoding(false));
         }
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace ScheduleManager
         /// <param name="taskList"></param>
         public static void writeTaskList(string filePath, TaskList taskList)
         {
-            FileConfigWriter.writeConfig(filePath, taskList, Encoding.UTF8);
+            FileConfigWriter.writeConfig(filePath, taskList, new UTF8Encoding(false));
         }
     }
 }
