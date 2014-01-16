@@ -66,7 +66,7 @@ namespace ScheduleManager
             return str == Common.ALL_TASK_FILE;
         }
 
-        public static string TaskBlockToString(List<TaskElement> taskBlock)
+        public static string TaskBlockToString(TaskBlock taskBlock)
         {
             StringBuilder sb = new StringBuilder();
             foreach(TaskElement taskElement in taskBlock)

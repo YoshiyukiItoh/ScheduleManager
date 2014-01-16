@@ -45,14 +45,14 @@ namespace ScheduleManager
             string afterTXT = afterTB.Text;
             string[] afterAryData = afterTXT.Split(new string[] { Common.LINE_SEPARATOR }, StringSplitOptions.RemoveEmptyEntries);
 
-            List<TaskElement> foreList = new List<TaskElement>();
+            TaskBlock foreList = new TaskBlock();
             foreach (string foreData in foreAryData)
             {
                 bool checkstate = foreData.IndexOf(Common.STATE_IMPERFECT) >= 0 ? false : true;
                 foreList.Add(new TaskElement(foreData, checkstate));
             }
 
-            List<TaskElement> afterList = new List<TaskElement>();
+            TaskBlock afterList = new TaskBlock();
             foreach (string afterData in afterAryData)
             {
                 bool checkstate = afterData.IndexOf(Common.STATE_IMPERFECT) >= 0 ? false : true;

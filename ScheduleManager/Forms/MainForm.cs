@@ -88,7 +88,7 @@ namespace ScheduleManager
         /// <param name="e"></param>
         private void taskUpdateButton_Click(object sender, EventArgs e)
         {
-            //List<TaskElement> foreTask = new List<TaskElement>();
+            //TaskBlock foreTask = new TaskBlock();
             //CheckedListBox.ObjectCollection items = foreCBL.Items;
             //IEnumerator iEnum = items.GetEnumerator();
             //iEnum.Reset();
@@ -175,8 +175,8 @@ namespace ScheduleManager
             TaskList taskList = FileConfig.readTaskList(readFilePath);
 
             // それぞれの予定取得
-            List<TaskElement> foreList = taskList.ForeTaskBlock;
-            List<TaskElement> afterList = taskList.AfterTaskBlock;
+            TaskBlock foreList = taskList.ForeTaskBlock;
+            TaskBlock afterList = taskList.AfterTaskBlock;
 
             // クラス変数に反映
             base.todayTask = new TaskList(foreList, afterList);
@@ -203,8 +203,8 @@ namespace ScheduleManager
         private void updateTodayTaskList()
         {
             // それぞれの予定取得
-            List<TaskElement> foreList = base.todayTask.ForeTaskBlock;
-            List<TaskElement> afterList = base.todayTask.AfterTaskBlock;
+            TaskBlock foreList = base.todayTask.ForeTaskBlock;
+            TaskBlock afterList = base.todayTask.AfterTaskBlock;
 
             // ListBoxに反映
             // 午前
@@ -247,24 +247,33 @@ namespace ScheduleManager
             if (base.todayTask == null)
             {
                 this.alertLabel.Visible = true;
-                this.createNewSucheduleButton.Text = "新規作成";
-                this.afterAchievementLevel.Text = " 0/ 0   0%";
-                this.foreAchievementLevel.Text = " 0/ 0   0%";
+                this.createNewScheduleButton.Text = "新規作成";
+                this.afterCompleteLavel.Text = " 0/ 0   0%";
+                this.foreCompleteLavel.Text = " 0/ 0   0%";
             }
             else
             {
                 this.alertLabel.Visible = false;
-                this.createNewSucheduleButton.Text = "編集";
+                this.createNewScheduleButton.Text = "編集";
                 
-                // 要素数カウント
-                int cntAllFore = base.todayTask.ForeTaskBlock.Count;
-                int cntAllAfter = base.todayTask.AfterTaskBlock.Count;
-                // チェック数カウント
-                int cntFore = base.todayTask.CountForeTaskLevel();
-                int cntAfter = base.todayTask.CountAfterTaskLevel();
+                // 当日タスク達成率更新
+                rewriteCompleteLabel(todayTask.ForeTaskBlock, ref foreCompleteLavel);
+                rewriteCompleteLabel(todayTask.AfterTaskBlock, ref afterCompleteLavel);
+            }
+        }
 
-                this.foreAchievementLevel.Text = String.Format("{0:D2}/{1:D2} {2,3}%", cntFore, cntAllFore, cntFore * 100 / cntAllFore);
-                this.afterAchievementLevel.Text = String.Format("{0:D2}/{1:D2} {2,3}%", cntAfter, cntAllAfter, cntAfter * 100 / cntAllAfter);
+        private void rewriteCompleteLabel(TaskBlock taskBlock, ref Label label)
+        {
+            if (taskBlock == null || taskBlock.Count() == 0)
+            {
+                label.Text = String.Format("{0:D2}/{1:D2} {2,3}%", 0, 0, 0);
+            }
+            else
+            {
+                int cntAllElement = taskBlock.Count();
+                int checkedElement = taskBlock.getCheckedTaskCount();
+
+                label.Text = String.Format("{0:D2}/{1:D2} {2,3}%", checkedElement, cntAllElement, checkedElement * 100 / cntAllElement);
             }
         }
     }

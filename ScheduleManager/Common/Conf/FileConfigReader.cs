@@ -146,8 +146,8 @@ namespace ScheduleManager
             string AFTER_END_TAG = String.Concat(new string[] { Common.ANGLE_BRACKET_BEGIN, Common.SLASH, Common.AFTER_TAG, Common.ANGLE_BRACKET_END });
 
             // 返却変数
-            List<TaskElement> foreTask = new List<TaskElement>();
-            List<TaskElement> afterTask = new List<TaskElement>();
+            TaskBlock foreTask = new TaskBlock();
+            TaskBlock afterTask = new TaskBlock();
 
             // ファイルの読み込み処理
             StreamReader sReader = new StreamReader(filePath, encoding);

@@ -8,16 +8,16 @@ namespace ScheduleManager
     public class TaskList
     {
         // 午前タスク格納変数
-        private List<TaskElement> foreTaskBlock;
+        private TaskBlock foreTaskBlock;
         // 午後タスク格納変数
-        private List<TaskElement> afterTaskBlock;
+        private TaskBlock afterTaskBlock;
 
         /// <summary>
         /// コンストラクタ
         /// </summary>
         /// <param name="foreTaskBlock">午前タスク</param>
         /// <param name="afterTaskBlock">午後タスク</param>
-        public TaskList(List<TaskElement> foreTaskBlock, List<TaskElement> afterTaskBlock)
+        public TaskList(TaskBlock foreTaskBlock, TaskBlock afterTaskBlock)
         {
             this.foreTaskBlock = foreTaskBlock;
             this.afterTaskBlock = afterTaskBlock;
@@ -26,7 +26,7 @@ namespace ScheduleManager
         /// <summary>
         /// foreTaskBlockプロパティ
         /// </summary>
-        public List<TaskElement> ForeTaskBlock
+        public TaskBlock ForeTaskBlock
         {
             set { foreTaskBlock = value; }
             get { return foreTaskBlock; }
@@ -35,7 +35,7 @@ namespace ScheduleManager
         /// <summary>
         /// afterTaskBlockプロパティ
         /// </summary>
-        public List<TaskElement> AfterTaskBlock
+        public TaskBlock AfterTaskBlock
         {
             set { afterTaskBlock = value; }
             get { return afterTaskBlock; }
@@ -52,32 +52,6 @@ namespace ScheduleManager
             string replace_str = state ? Common.STATE_COMPLETE : Common.STATE_IMPERFECT;
             foreTaskBlock[pos].CheckState = state;
             foreTaskBlock[pos].Task = foreTaskBlock[pos].Task.Replace(before_str, replace_str);
-        }
-
-        public int CountForeTaskLevel()
-        {
-            int retCnt = 0;
-            foreach(TaskElement taskElement in foreTaskBlock)
-            {
-                if (taskElement.Task.IndexOf(Common.STATE_COMPLETE) >= 0)
-                {
-                    retCnt++;
-                }
-            }
-            return retCnt;
-        }
-
-        public int CountAfterTaskLevel()
-        {
-            int retCnt = 0;
-            foreach (TaskElement taskElement in AfterTaskBlock)
-            {
-                if (taskElement.Task.IndexOf(Common.STATE_COMPLETE) >= 0)
-                {
-                    retCnt++;
-                }
-            }
-            return retCnt;
         }
     }
 }

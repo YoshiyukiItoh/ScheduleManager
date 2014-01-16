@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.todayTaskTab = new System.Windows.Forms.TabPage();
-            this.afterAchievementLevel = new System.Windows.Forms.Label();
-            this.foreAchievementLevel = new System.Windows.Forms.Label();
-            this.createNewSucheduleButton = new System.Windows.Forms.Button();
+            this.afterCompleteLavel = new System.Windows.Forms.Label();
+            this.foreCompleteLavel = new System.Windows.Forms.Label();
+            this.createNewScheduleButton = new System.Windows.Forms.Button();
             this.taskUpdateButton = new System.Windows.Forms.Button();
             this.alertLabel = new System.Windows.Forms.Label();
             this.afterCBL = new System.Windows.Forms.CheckedListBox();
@@ -50,9 +50,9 @@
             // 
             // todayTaskTab
             // 
-            this.todayTaskTab.Controls.Add(this.afterAchievementLevel);
-            this.todayTaskTab.Controls.Add(this.foreAchievementLevel);
-            this.todayTaskTab.Controls.Add(this.createNewSucheduleButton);
+            this.todayTaskTab.Controls.Add(this.afterCompleteLavel);
+            this.todayTaskTab.Controls.Add(this.foreCompleteLavel);
+            this.todayTaskTab.Controls.Add(this.createNewScheduleButton);
             this.todayTaskTab.Controls.Add(this.taskUpdateButton);
             this.todayTaskTab.Controls.Add(this.alertLabel);
             this.todayTaskTab.Controls.Add(this.afterCBL);
@@ -69,33 +69,33 @@
             this.todayTaskTab.Text = "当日タスク";
             this.todayTaskTab.UseVisualStyleBackColor = true;
             // 
-            // afterAchievementLevel
+            // afterCompleteLavel
             // 
-            this.afterAchievementLevel.AutoSize = true;
-            this.afterAchievementLevel.Location = new System.Drawing.Point(341, 230);
-            this.afterAchievementLevel.Name = "afterAchievementLevel";
-            this.afterAchievementLevel.Size = new System.Drawing.Size(57, 12);
-            this.afterAchievementLevel.TabIndex = 12;
-            this.afterAchievementLevel.Text = "xx/xx xx%";
+            this.afterCompleteLavel.AutoSize = true;
+            this.afterCompleteLavel.Location = new System.Drawing.Point(341, 230);
+            this.afterCompleteLavel.Name = "afterCompleteLavel";
+            this.afterCompleteLavel.Size = new System.Drawing.Size(57, 12);
+            this.afterCompleteLavel.TabIndex = 12;
+            this.afterCompleteLavel.Text = "xx/xx xx%";
             // 
-            // foreAchievementLevel
+            // foreCompleteLavel
             // 
-            this.foreAchievementLevel.AutoSize = true;
-            this.foreAchievementLevel.Location = new System.Drawing.Point(341, 33);
-            this.foreAchievementLevel.Name = "foreAchievementLevel";
-            this.foreAchievementLevel.Size = new System.Drawing.Size(57, 12);
-            this.foreAchievementLevel.TabIndex = 11;
-            this.foreAchievementLevel.Text = "xx/xx xx%";
+            this.foreCompleteLavel.AutoSize = true;
+            this.foreCompleteLavel.Location = new System.Drawing.Point(341, 33);
+            this.foreCompleteLavel.Name = "foreCompleteLavel";
+            this.foreCompleteLavel.Size = new System.Drawing.Size(57, 12);
+            this.foreCompleteLavel.TabIndex = 11;
+            this.foreCompleteLavel.Text = "xx/xx xx%";
             // 
-            // createNewSucheduleButton
+            // createNewScheduleButton
             // 
-            this.createNewSucheduleButton.Location = new System.Drawing.Point(11, 420);
-            this.createNewSucheduleButton.Name = "createNewSucheduleButton";
-            this.createNewSucheduleButton.Size = new System.Drawing.Size(75, 23);
-            this.createNewSucheduleButton.TabIndex = 10;
-            this.createNewSucheduleButton.Text = "####";
-            this.createNewSucheduleButton.UseVisualStyleBackColor = true;
-            this.createNewSucheduleButton.Click += new System.EventHandler(this.createNewSucheduleButton_Click);
+            this.createNewScheduleButton.Location = new System.Drawing.Point(11, 420);
+            this.createNewScheduleButton.Name = "createNewScheduleButton";
+            this.createNewScheduleButton.Size = new System.Drawing.Size(75, 23);
+            this.createNewScheduleButton.TabIndex = 10;
+            this.createNewScheduleButton.Text = "####";
+            this.createNewScheduleButton.UseVisualStyleBackColor = true;
+            this.createNewScheduleButton.Click += new System.EventHandler(this.createNewSucheduleButton_Click);
             // 
             // taskUpdateButton
             // 
@@ -219,9 +219,9 @@
         #endregion
 
         private System.Windows.Forms.TabPage todayTaskTab;
-        private System.Windows.Forms.Label afterAchievementLevel;
-        private System.Windows.Forms.Label foreAchievementLevel;
-        private System.Windows.Forms.Button createNewSucheduleButton;
+        private System.Windows.Forms.Label afterCompleteLavel;
+        private System.Windows.Forms.Label foreCompleteLavel;
+        private System.Windows.Forms.Button createNewScheduleButton;
         private System.Windows.Forms.Button taskUpdateButton;
         private System.Windows.Forms.Label alertLabel;
         private System.Windows.Forms.CheckedListBox afterCBL;
