@@ -17,6 +17,9 @@ namespace ScheduleManager
         private const string MESSAGE_CREATE = "の予定を作成します。";
         private const string MESSAGE_EDIT = "の予定を編集します。";
 
+        private bool foreTBEmpty = false;
+        private bool afterTBEmpty = false;
+
         public CreateNewScheduleForm(TaskList taskList, string today)
         {
             InitializeComponent();
@@ -89,6 +92,30 @@ namespace ScheduleManager
                 taskBlock.Add(new TaskElement(task, checkstate));
             }
             return taskBlock;
+        }
+
+        private void foreTB_TextChanged(object sender, EventArgs e)
+        {
+            int foreLength = foreTB.Text.Length;
+            this.foreTBEmpty = foreLength > 0 ? true : false;
+            CreateButtonControl();
+        }
+
+        private void afterTB_TextChanged(object sender, EventArgs e)
+        {
+            int afterLength = afterTB.Text.Length;
+            this.afterTBEmpty = afterLength > 0 ? true : false;
+            CreateButtonControl();
+        }
+
+        private void CreateButtonControl()
+        {
+            this.CreateButton.Enabled = this.foreTBEmpty || this.afterTBEmpty;
+        }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

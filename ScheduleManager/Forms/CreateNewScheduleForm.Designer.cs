@@ -28,39 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.createDateLabel = new System.Windows.Forms.Label();
-            this.foreLabel = new System.Windows.Forms.Label();
-            this.foreTB = new System.Windows.Forms.TextBox();
-            this.afterLabel = new System.Windows.Forms.Label();
-            this.afterTB = new System.Windows.Forms.TextBox();
+            this.CancelButton = new System.Windows.Forms.Button();
             this.CreateButton = new System.Windows.Forms.Button();
+            this.afterTB = new System.Windows.Forms.TextBox();
+            this.afterLabel = new System.Windows.Forms.Label();
+            this.foreTB = new System.Windows.Forms.TextBox();
+            this.foreLabel = new System.Windows.Forms.Label();
+            this.createDateLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // createDateLabel
+            // CancelButton
             // 
-            this.createDateLabel.AutoSize = true;
-            this.createDateLabel.Location = new System.Drawing.Point(13, 13);
-            this.createDateLabel.Name = "createDateLabel";
-            this.createDateLabel.Size = new System.Drawing.Size(108, 12);
-            this.createDateLabel.TabIndex = 0;
-            this.createDateLabel.Text = "の予定を作成します。";
+            this.CancelButton.Location = new System.Drawing.Point(397, 437);
+            this.CancelButton.Name = "CancelButton";
+            this.CancelButton.Size = new System.Drawing.Size(75, 23);
+            this.CancelButton.TabIndex = 6;
+            this.CancelButton.Text = "キャンセル";
+            this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
-            // foreLabel
+            // CreateButton
             // 
-            this.foreLabel.AutoSize = true;
-            this.foreLabel.Location = new System.Drawing.Point(15, 40);
-            this.foreLabel.Name = "foreLabel";
-            this.foreLabel.Size = new System.Drawing.Size(29, 12);
-            this.foreLabel.TabIndex = 1;
-            this.foreLabel.Text = "午前";
+            this.CreateButton.Enabled = false;
+            this.CreateButton.Location = new System.Drawing.Point(310, 437);
+            this.CreateButton.Name = "CreateButton";
+            this.CreateButton.Size = new System.Drawing.Size(75, 23);
+            this.CreateButton.TabIndex = 5;
+            this.CreateButton.Text = "作成";
+            this.CreateButton.UseVisualStyleBackColor = true;
+            this.CreateButton.Click += new System.EventHandler(this.CreateButton_Click);
             // 
-            // foreTB
+            // afterTB
             // 
-            this.foreTB.Location = new System.Drawing.Point(15, 55);
-            this.foreTB.Multiline = true;
-            this.foreTB.Name = "foreTB";
-            this.foreTB.Size = new System.Drawing.Size(435, 172);
-            this.foreTB.TabIndex = 2;
+            this.afterTB.Location = new System.Drawing.Point(17, 250);
+            this.afterTB.Multiline = true;
+            this.afterTB.Name = "afterTB";
+            this.afterTB.Size = new System.Drawing.Size(435, 172);
+            this.afterTB.TabIndex = 4;
+            this.afterTB.TextChanged += new System.EventHandler(this.afterTB_TextChanged);
             // 
             // afterLabel
             // 
@@ -71,29 +76,39 @@
             this.afterLabel.TabIndex = 3;
             this.afterLabel.Text = "午後";
             // 
-            // afterTB
+            // foreTB
             // 
-            this.afterTB.Location = new System.Drawing.Point(17, 250);
-            this.afterTB.Multiline = true;
-            this.afterTB.Name = "afterTB";
-            this.afterTB.Size = new System.Drawing.Size(435, 172);
-            this.afterTB.TabIndex = 4;
+            this.foreTB.Location = new System.Drawing.Point(15, 55);
+            this.foreTB.Multiline = true;
+            this.foreTB.Name = "foreTB";
+            this.foreTB.Size = new System.Drawing.Size(435, 172);
+            this.foreTB.TabIndex = 2;
+            this.foreTB.TextChanged += new System.EventHandler(this.foreTB_TextChanged);
             // 
-            // CreateButton
+            // foreLabel
             // 
-            this.CreateButton.Location = new System.Drawing.Point(397, 437);
-            this.CreateButton.Name = "CreateButton";
-            this.CreateButton.Size = new System.Drawing.Size(75, 23);
-            this.CreateButton.TabIndex = 5;
-            this.CreateButton.Text = "作成";
-            this.CreateButton.UseVisualStyleBackColor = true;
-            this.CreateButton.Click += new System.EventHandler(this.CreateButton_Click);
+            this.foreLabel.AutoSize = true;
+            this.foreLabel.Location = new System.Drawing.Point(15, 40);
+            this.foreLabel.Name = "foreLabel";
+            this.foreLabel.Size = new System.Drawing.Size(29, 12);
+            this.foreLabel.TabIndex = 1;
+            this.foreLabel.Text = "午前";
+            // 
+            // createDateLabel
+            // 
+            this.createDateLabel.AutoSize = true;
+            this.createDateLabel.Location = new System.Drawing.Point(13, 13);
+            this.createDateLabel.Name = "createDateLabel";
+            this.createDateLabel.Size = new System.Drawing.Size(108, 12);
+            this.createDateLabel.TabIndex = 0;
+            this.createDateLabel.Text = "の予定を作成します。";
             // 
             // CreateNewScheduleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 472);
+            this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.CreateButton);
             this.Controls.Add(this.afterTB);
             this.Controls.Add(this.afterLabel);
@@ -115,5 +130,6 @@
         private System.Windows.Forms.Label afterLabel;
         private System.Windows.Forms.TextBox afterTB;
         private System.Windows.Forms.Button CreateButton;
+        private System.Windows.Forms.Button CancelButton;
     }
 }
