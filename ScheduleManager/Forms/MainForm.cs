@@ -30,6 +30,7 @@ namespace ScheduleManager
             // システム日付取得(yyyy-mm-dd)
             string today = Common.getSystemDate();
             base.todayDate = today;
+            base.selectedDate = today;
             SetAllTasksConfig();
             SetTodayTaskConfig(today);
             updateDisplayItem();
@@ -55,6 +56,7 @@ namespace ScheduleManager
             else
             {
                 this.alertLabel.Visible = true;
+                todayTask = new TaskList();
             }
 
             // タスクファイル名一覧取得
@@ -88,15 +90,6 @@ namespace ScheduleManager
         /// <param name="e"></param>
         private void taskUpdateButton_Click(object sender, EventArgs e)
         {
-            //TaskBlock foreTask = new TaskBlock();
-            //CheckedListBox.ObjectCollection items = foreCBL.Items;
-            //IEnumerator iEnum = items.GetEnumerator();
-            //iEnum.Reset();
-            //while (iEnum.MoveNext())
-            //{
-            //    foreTask.Add(new TaskElement((string)iEnum.Current));
-            //}
-
             // 午前
             // チェック済要素配列
             CheckedListBox.CheckedIndexCollection foreCheckedIndices = foreCBL.CheckedIndices;
@@ -160,7 +153,7 @@ namespace ScheduleManager
             // 当日タスク更新
             updateTodayTaskList();
             // ファイル反映
-            FileConfig.writeTaskList(Path.Combine(new string[] { Common.TASKS_DIR, base.todayDate + Common.TXT_EXTENTION }), base.todayTask);
+            FileConfig.writeTaskList(Path.Combine(new string[] { Common.TASKS_DIR, base.selectedDate + Common.TXT_EXTENTION }), base.todayTask);
             updateDisplayItem();
         }
 
@@ -180,8 +173,6 @@ namespace ScheduleManager
 
             // クラス変数に反映
             base.todayTask = new TaskList(foreList, afterList);
-            //base.todayTask.ForeTaskBlock = foreList;
-            //base.todayTask.AfterTaskBlock = afterList;
 
             // ListBoxに反映
             // 午前
@@ -232,49 +223,51 @@ namespace ScheduleManager
         /// <param name="e"></param>
         private void createNewSucheduleButton_Click(object sender, EventArgs e)
         {
-            CreateNewScheduleForm cnsf = new CreateNewScheduleForm(base.todayTask, base.todayDate);
+            CreateNewScheduleForm cnsf = new CreateNewScheduleForm(base.todayTask, base.selectedDate);
             cnsf.ShowDialog();
-            readTodayTaskList(base.todayDate);
-        }
-
-        private void refreshButton_Click(object sender, EventArgs e)
-        {
-            updateTodayTaskList();
+            readTodayTaskList(base.selectedDate);
         }
 
         private void updateDisplayItem()
         {
-            if (base.todayTask == null)
+            if (base.todayTask.isBothEmpty())
             {
                 this.alertLabel.Visible = true;
                 this.createNewScheduleButton.Text = "新規作成";
-                this.afterCompleteLavel.Text = " 0/ 0   0%";
-                this.foreCompleteLavel.Text = " 0/ 0   0%";
             }
             else
             {
                 this.alertLabel.Visible = false;
                 this.createNewScheduleButton.Text = "編集";
-                
-                // 当日タスク達成率更新
-                rewriteCompleteLabel(todayTask.ForeTaskBlock, ref foreCompleteLavel);
-                rewriteCompleteLabel(todayTask.AfterTaskBlock, ref afterCompleteLavel);
             }
+            // 当日タスク達成率更新
+            rewriteCompleteLabel(todayTask.ForeTaskBlock, ref foreCompleteLavel);
+            rewriteCompleteLabel(todayTask.AfterTaskBlock, ref afterCompleteLavel);
         }
 
         private void rewriteCompleteLabel(TaskBlock taskBlock, ref Label label)
         {
-            if (taskBlock == null || taskBlock.Count() == 0)
-            {
-                label.Text = String.Format("{0:D2}/{1:D2} {2,3}%", 0, 0, 0);
-            }
-            else
+            if (taskBlock != null && taskBlock.Count > 0)
             {
                 int cntAllElement = taskBlock.Count();
                 int checkedElement = taskBlock.getCheckedTaskCount();
 
                 label.Text = String.Format("{0:D2}/{1:D2} {2,3}%", checkedElement, cntAllElement, checkedElement * 100 / cntAllElement);
+                label.Text = String.Format("{0:D2}/{1:D2} {2,3}%", 0, 0, 0);
+                return;
             }
+
+            label.Text = String.Format("{0:D2}/{1:D2} {2,3}%", 0, 0, 0);
+        }
+
+        private void oneDayCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            base.selectedDate = (string)this.oneDayCB.SelectedItem;
+            if (String.IsNullOrEmpty(selectedDate))
+            {
+                return;
+            }
+            readTodayTaskList(this.selectedDate);
         }
     }
 }

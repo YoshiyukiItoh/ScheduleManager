@@ -15,11 +15,26 @@ namespace ScheduleManager
         // protected 
         // アプリの起動日付
         protected string todayDate;
+        // 選択日付
+        protected string selectedDate;
         // 編集する日付一覧
         protected string[] editDateList;
 
         public BaseForm()
         {
+        }
+
+        public bool isRangeOfEditDateList()
+        {
+            bool ret = false;
+            foreach (string date in editDateList)
+            {
+                if (String.Equals(date, selectedDate))
+                {
+                    ret = true;
+                }
+            }
+            return ret;
         }
     }
 }

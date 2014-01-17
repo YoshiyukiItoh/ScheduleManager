@@ -36,7 +36,6 @@
             this.alertLabel = new System.Windows.Forms.Label();
             this.afterCBL = new System.Windows.Forms.CheckedListBox();
             this.foreCBL = new System.Windows.Forms.CheckedListBox();
-            this.refreshButton = new System.Windows.Forms.Button();
             this.oneDayCB = new System.Windows.Forms.ComboBox();
             this.afterLabel = new System.Windows.Forms.Label();
             this.foreLabel = new System.Windows.Forms.Label();
@@ -57,7 +56,6 @@
             this.todayTaskTab.Controls.Add(this.alertLabel);
             this.todayTaskTab.Controls.Add(this.afterCBL);
             this.todayTaskTab.Controls.Add(this.foreCBL);
-            this.todayTaskTab.Controls.Add(this.refreshButton);
             this.todayTaskTab.Controls.Add(this.oneDayCB);
             this.todayTaskTab.Controls.Add(this.afterLabel);
             this.todayTaskTab.Controls.Add(this.foreLabel);
@@ -134,23 +132,14 @@
             this.foreCBL.Size = new System.Drawing.Size(435, 172);
             this.foreCBL.TabIndex = 6;
             // 
-            // refreshButton
-            // 
-            this.refreshButton.Location = new System.Drawing.Point(393, 4);
-            this.refreshButton.Name = "refreshButton";
-            this.refreshButton.Size = new System.Drawing.Size(75, 23);
-            this.refreshButton.TabIndex = 5;
-            this.refreshButton.Text = "表示";
-            this.refreshButton.UseVisualStyleBackColor = true;
-            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
-            // 
             // oneDayCB
             // 
             this.oneDayCB.FormattingEnabled = true;
-            this.oneDayCB.Location = new System.Drawing.Point(266, 6);
+            this.oneDayCB.Location = new System.Drawing.Point(347, 6);
             this.oneDayCB.Name = "oneDayCB";
             this.oneDayCB.Size = new System.Drawing.Size(121, 20);
             this.oneDayCB.TabIndex = 4;
+            this.oneDayCB.SelectedIndexChanged += new System.EventHandler(this.oneDayCB_SelectedIndexChanged);
             // 
             // afterLabel
             // 
@@ -226,7 +215,6 @@
         private System.Windows.Forms.Label alertLabel;
         private System.Windows.Forms.CheckedListBox afterCBL;
         private System.Windows.Forms.CheckedListBox foreCBL;
-        private System.Windows.Forms.Button refreshButton;
         private System.Windows.Forms.ComboBox oneDayCB;
         private System.Windows.Forms.Label afterLabel;
         private System.Windows.Forms.Label foreLabel;

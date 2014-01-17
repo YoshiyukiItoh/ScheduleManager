@@ -68,6 +68,10 @@ namespace ScheduleManager
 
         public static string TaskBlockToString(TaskBlock taskBlock)
         {
+            if (taskBlock == null)
+            {
+                return String.Empty;
+            }
             StringBuilder sb = new StringBuilder();
             foreach(TaskElement taskElement in taskBlock)
             {

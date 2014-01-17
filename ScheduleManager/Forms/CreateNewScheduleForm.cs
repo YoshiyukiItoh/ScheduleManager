@@ -66,18 +66,15 @@ namespace ScheduleManager
 
         private void CreateButton_Click(object sender, EventArgs e)
         {
-            string foreTXT = foreTB.Text;
-            string[] foreAryData = foreTXT.Split(new string[] { Common.LINE_SEPARATOR }, StringSplitOptions.RemoveEmptyEntries);
-            string afterTXT = afterTB.Text;
-            string[] afterAryData = afterTXT.Split(new string[] { Common.LINE_SEPARATOR }, StringSplitOptions.RemoveEmptyEntries);
-
             TaskBlock foreList = BlockToList(foreTB.Text);
             TaskBlock afterList = BlockToList(afterTB.Text);
 
             todayTask = new TaskList(foreList, afterList);
 
-            FileConfig.writeTaskList(Path.Combine(new string[] { Common.TASKS_DIR, base.todayDate + Common.TXT_EXTENTION }), base.todayTask);
-
+            if (!todayTask.isBothElementZero())
+            {
+                FileConfig.writeTaskList(Path.Combine(new string[] { Common.TASKS_DIR, base.todayDate + Common.TXT_EXTENTION }), base.todayTask);
+            }
             this.Close();
         }
 
