@@ -20,12 +20,29 @@ namespace ScheduleManager
         private bool foreTBEmpty = false;
         private bool afterTBEmpty = false;
 
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        /// <param name="taskList">タスクリスト</param>
+        /// <param name="today">編集日付</param>
         public CreateNewScheduleForm(TaskList taskList, string today)
         {
             InitializeComponent();
             base.todayTask = taskList;
             base.todayDate = today;
             Init();
+        }
+
+        /// <summary>
+        /// デストラクタ
+        /// </summary>
+        ~CreateNewScheduleForm()
+        {
+            if (todayTask != null)
+            {
+                base.todayTask.ForeTaskBlock.Clear();
+                base.todayTask.AfterTaskBlock.Clear();
+            }
         }
 
         /// <summary>
@@ -67,6 +84,11 @@ namespace ScheduleManager
             this.CreateButton.Text = displayButtonText;
         }
 
+        /// <summary>
+        /// 予定の新規作成を行います。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CreateButton_Click(object sender, EventArgs e)
         {
             TaskBlock foreList = BlockToList(foreTB.Text);
@@ -81,6 +103,11 @@ namespace ScheduleManager
             this.Close();
         }
 
+        /// <summary>
+        /// stringの文字列を1行ごとにTaskBlockに格納していきます。
+        /// </summary>
+        /// <param name="strData"></param>
+        /// <returns></returns>
         private TaskBlock BlockToList(string strData)
         {
             string[] tasks = strData.Split(new string[] { Common.LINE_SEPARATOR }, StringSplitOptions.RemoveEmptyEntries);
@@ -94,6 +121,11 @@ namespace ScheduleManager
             return taskBlock;
         }
 
+        /// <summary>
+        /// テキストボックスの入力チェックを行います。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void foreTB_TextChanged(object sender, EventArgs e)
         {
             int foreLength = foreTB.Text.Length;
@@ -101,6 +133,11 @@ namespace ScheduleManager
             CreateButtonControl();
         }
 
+        /// <summary>
+        /// テキストボックスの入力チェックを行います。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void afterTB_TextChanged(object sender, EventArgs e)
         {
             int afterLength = afterTB.Text.Length;
@@ -108,11 +145,19 @@ namespace ScheduleManager
             CreateButtonControl();
         }
 
+        /// <summary>
+        /// 新規作成ボタンの制御
+        /// </summary>
         private void CreateButtonControl()
         {
             this.CreateButton.Enabled = this.foreTBEmpty || this.afterTBEmpty;
         }
 
+        /// <summary>
+        /// キャンセルボタン
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
