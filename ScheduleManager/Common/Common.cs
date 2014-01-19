@@ -66,6 +66,11 @@ namespace ScheduleManager
             return str == Common.ALL_TASK_FILE;
         }
 
+        /// <summary>
+        /// TaskBlockからstringの文字列を取得する。
+        /// </summary>
+        /// <param name="taskBlock">予定</param>
+        /// <returns></returns>
         public static string TaskBlockToString(TaskBlock taskBlock)
         {
             if (taskBlock == null)
@@ -78,6 +83,26 @@ namespace ScheduleManager
                 sb.Append(taskElement.Task + Common.LINE_SEPARATOR);
             }
             return sb.ToString();
+        }
+
+        /// <summary>
+        /// 翌営業日を取得します。
+        /// </summary>
+        /// <returns>翌営業日(yyyy-mm-dd)</returns>
+        public static string getNextDay()
+        {
+            // 当日日付取得
+            DateTime toDay = DateTime.Today;
+            DateTime nextDay;
+            HolidayChecker.HolidayInfo holidayInfo;
+
+            do
+            {
+                nextDay = toDay.AddDays(1);
+                holidayInfo = HolidayChecker.Holiday(nextDay);
+            } while (holidayInfo.holiday != HolidayChecker.HolidayInfo.HOLIDAY.WEEKDAY);
+
+            return nextDay.ToString().Substring(0, 10).Replace("/", "-");
         }
     }
 }

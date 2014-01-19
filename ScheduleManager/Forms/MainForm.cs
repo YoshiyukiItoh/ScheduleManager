@@ -72,11 +72,23 @@ namespace ScheduleManager
             {
                 base.editDateList = taskFiles;
             }
-            //base.editDateList = taskFiles.Length == 0 ? new string[] {today} :  
+
+            Array.Sort(editDateList);
+
             this.oneDayCB.Items.AddRange(base.editDateList);
             if (editDateList.Length > 0)
             {
-                this.oneDayCB.SelectedIndex = editDateList.Length - 1;
+                // TODO 位置指定
+                int index = 0;
+                for (int i = 0; i < editDateList.Length; i++ )
+                {
+                    if (String.Equals(editDateList[i], base.selectedDate))
+                    {
+                        index = i;
+                        break;
+                    }
+                }
+                this.oneDayCB.SelectedIndex = index;
             }
 
             // 当日の予定読み込み、更新
@@ -268,6 +280,15 @@ namespace ScheduleManager
                 return;
             }
             readTodayTaskList(this.selectedDate);
+        }
+
+        private void createNextDayScheduleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            base.selectedDate = Common.getNextDay();
+            CreateNewScheduleForm cnsf = new CreateNewScheduleForm(base.todayTask, base.selectedDate);
+            cnsf.ShowDialog();
+            //readTodayTaskList(base.selectedDate);
+            SetTodayTaskConfig(base.selectedDate);
         }
     }
 }

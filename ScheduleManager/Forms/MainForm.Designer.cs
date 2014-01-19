@@ -42,9 +42,13 @@
             this.allTaskTab = new System.Windows.Forms.TabPage();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.tabControl = new System.Windows.Forms.TabControl();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.createNextDayScheduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.todayTaskTab.SuspendLayout();
             this.allTaskTab.SuspendLayout();
             this.tabControl.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // todayTaskTab
@@ -62,7 +66,7 @@
             this.todayTaskTab.Location = new System.Drawing.Point(4, 22);
             this.todayTaskTab.Name = "todayTaskTab";
             this.todayTaskTab.Padding = new System.Windows.Forms.Padding(3);
-            this.todayTaskTab.Size = new System.Drawing.Size(476, 446);
+            this.todayTaskTab.Size = new System.Drawing.Size(476, 456);
             this.todayTaskTab.TabIndex = 1;
             this.todayTaskTab.Text = "当日タスク";
             this.todayTaskTab.UseVisualStyleBackColor = true;
@@ -165,7 +169,7 @@
             this.allTaskTab.Location = new System.Drawing.Point(4, 22);
             this.allTaskTab.Name = "allTaskTab";
             this.allTaskTab.Padding = new System.Windows.Forms.Padding(3);
-            this.allTaskTab.Size = new System.Drawing.Size(476, 446);
+            this.allTaskTab.Size = new System.Drawing.Size(476, 456);
             this.allTaskTab.TabIndex = 0;
             this.allTaskTab.Text = "全タスク";
             this.allTaskTab.UseVisualStyleBackColor = true;
@@ -175,33 +179,63 @@
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Location = new System.Drawing.Point(3, 3);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(470, 440);
+            this.treeView1.Size = new System.Drawing.Size(470, 450);
             this.treeView1.TabIndex = 0;
             // 
             // tabControl
             // 
             this.tabControl.Controls.Add(this.todayTaskTab);
             this.tabControl.Controls.Add(this.allTaskTab);
-            this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl.Location = new System.Drawing.Point(0, 0);
+            this.tabControl.Location = new System.Drawing.Point(0, 22);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(484, 472);
+            this.tabControl.Size = new System.Drawing.Size(484, 482);
             this.tabControl.TabIndex = 0;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.menuStrip1.Location = new System.Drawing.Point(-7, -2);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(96, 26);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.createNextDayScheduleToolStripMenuItem});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(88, 22);
+            this.toolStripMenuItem1.Text = "メニュー(M)";
+            // 
+            // createNextDayScheduleToolStripMenuItem
+            // 
+            this.createNextDayScheduleToolStripMenuItem.Name = "createNextDayScheduleToolStripMenuItem";
+            this.createNextDayScheduleToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.createNextDayScheduleToolStripMenuItem.Text = "翌日のスケジュール作成";
+            this.createNextDayScheduleToolStripMenuItem.Click += new System.EventHandler(this.createNextDayScheduleToolStripMenuItem_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 472);
+            this.ClientSize = new System.Drawing.Size(484, 502);
             this.Controls.Add(this.tabControl);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "ScheduleManager";
             this.todayTaskTab.ResumeLayout(false);
             this.todayTaskTab.PerformLayout();
             this.allTaskTab.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -221,6 +255,9 @@
         private System.Windows.Forms.TabPage allTaskTab;
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.TabControl tabControl;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem createNextDayScheduleToolStripMenuItem;
 
     }
 }
