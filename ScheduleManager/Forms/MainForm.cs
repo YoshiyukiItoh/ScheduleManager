@@ -33,7 +33,7 @@ namespace ScheduleManager
             base.selectedDate = today;
             SetAllTasksConfig();
             SetTodayTaskConfig(today);
-            updateDisplayItem();
+            //updateDisplayItem();
         }
 
         private void SetAllTasksConfig()
@@ -265,7 +265,6 @@ namespace ScheduleManager
                 int checkedElement = taskBlock.getCheckedTaskCount();
 
                 label.Text = String.Format("{0:D2}/{1:D2} {2,3}%", checkedElement, cntAllElement, checkedElement * 100 / cntAllElement);
-                label.Text = String.Format("{0:D2}/{1:D2} {2,3}%", 0, 0, 0);
                 return;
             }
 
