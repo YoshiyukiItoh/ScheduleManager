@@ -98,7 +98,7 @@ namespace ScheduleManager
 
             if (!todayTask.isBothElementZero())
             {
-                FileConfig.writeTaskList(Path.Combine(new string[] { Common.TASKS_DIR, base.todayDate + Common.TXT_EXTENTION }), base.todayTask);
+                FileConfig.writeTaskList(Path.Combine(new string[] { Common.TASKS_DIR, Common.TASK_FILES, base.todayDate + Common.TXT_EXTENTION }), base.todayTask);
             }
             this.Close();
         }

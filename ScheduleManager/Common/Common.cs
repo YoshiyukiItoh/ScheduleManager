@@ -22,8 +22,12 @@ namespace ScheduleManager
         public const string AFTER_TAG = "afterNoon";
         // 設定ファイル　ディレクトリ名
         public const string TASKS_DIR = "tasks";
+        // 各タスクファイル格納ディレクトリ
+        public const string TASK_FILES = "taskfiles";
+        // 全タスクファイル名
+        public const string ALL_TASK_FILE = "all_tasks.txt";
         // 全タスク保存xmlファイル名
-        public const string ALL_TASK_FILE = "all_tasks.xml";
+        //public const string ALL_TASK_FILE = "all_tasks.xml";
         // 当日タスクファイル拡張子
         public const string TXT_EXTENTION = ".txt";
         // タスク完了状態
@@ -46,7 +50,10 @@ namespace ScheduleManager
         /// <returns>タスクファイル名の一覧</returns>
         public static string[] getTaskFiles()
         {
-            string[] files = Directory.GetFiles(Common.TASKS_DIR, "*", SearchOption.AllDirectories);
+            string[] files = Directory.GetFiles(
+                                        Path.Combine(new string[] {Common.TASKS_DIR, Common.TASK_FILES}), 
+                                        "*", 
+                                        SearchOption.AllDirectories);
             Array.Sort(files);
             List<string> fileList = new List<string>(files);
             fileList.RemoveAll(checkLine);
@@ -55,7 +62,8 @@ namespace ScheduleManager
             // ディレクトリ名削除
             for (int i = 0; i < files.Length; i++)
             {
-                files[i] = files[i].Substring(6,10);
+                int len = files[i].Length;
+                files[i] = files[i].Substring(16,10);
             }
 
             return files;
@@ -81,6 +89,16 @@ namespace ScheduleManager
             foreach(TaskElement taskElement in taskBlock)
             {
                 sb.Append(taskElement.Task + Common.LINE_SEPARATOR);
+            }
+            return sb.ToString();
+        }
+
+        public static string StringAryToString(string[] stringAry)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach(string str in stringAry)
+            {
+                sb.Append(str + Common.LINE_SEPARATOR);
             }
             return sb.ToString();
         }

@@ -24,6 +24,11 @@ namespace ScheduleManager
             return FileConfigReader.readTodayTask(filePath, new UTF8Encoding(false));
         }
 
+        public static string[] readAllTask(string filepath)
+        {
+            return FileConfigReader.readConfigAry(filepath, new UTF8Encoding(false));
+        }
+
         /// <summary>
         /// 指定したtaskListをUTF-8エンコードで書き込む
         /// </summary>

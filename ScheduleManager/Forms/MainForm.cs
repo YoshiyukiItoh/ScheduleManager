@@ -39,13 +39,26 @@ namespace ScheduleManager
         private void SetAllTasksConfig()
         {
             // 読み込みファイルパス作成
+            AllTasksListBox.Items.Clear();
             string ALL_TASKS_FILEPATH = Path.Combine(new string[] {Common.TASKS_DIR, Common.ALL_TASK_FILE});
+            string[] alltasks = null;
+
+            if (File.Exists(ALL_TASKS_FILEPATH))
+            {
+                alltasks = FileConfig.readAllTask(ALL_TASKS_FILEPATH);
+            }
+
+            // 全タスク反映
+            if (alltasks != null)
+            {
+                AllTasksListBox.Items.AddRange(alltasks);
+            }
         }
 
         private void SetTodayTaskConfig(string today)
         {
             // 読み込みファイルパス作成
-            string TODAY_TASK_FILEPATH = Path.Combine(new string[] {Common.TASKS_DIR, today + Common.TXT_EXTENTION});
+            string TODAY_TASK_FILEPATH = Path.Combine(new string[] { Common.TASKS_DIR, Common.TASK_FILES, today + Common.TXT_EXTENTION });
 
             if (File.Exists(TODAY_TASK_FILEPATH))
             {
@@ -165,14 +178,14 @@ namespace ScheduleManager
             // 当日タスク更新
             updateTodayTaskList();
             // ファイル反映
-            FileConfig.writeTaskList(Path.Combine(new string[] { Common.TASKS_DIR, base.selectedDate + Common.TXT_EXTENTION }), base.todayTask);
+            FileConfig.writeTaskList(Path.Combine(new string[] { Common.TASKS_DIR, Common.TASK_FILES, base.selectedDate + Common.TXT_EXTENTION }), base.todayTask);
             updateDisplayItem();
         }
 
         private void readTodayTaskList(string today)
         {
             // 当日の予定表示
-            string readFilePath = Path.Combine(new string[] { Common.TASKS_DIR, today + Common.TXT_EXTENTION });
+            string readFilePath = Path.Combine(new string[] { Common.TASKS_DIR, Common.TASK_FILES, today + Common.TXT_EXTENTION });
             if (!File.Exists(readFilePath))
             {
                 return;
@@ -288,6 +301,11 @@ namespace ScheduleManager
             cnsf.ShowDialog();
             //readTodayTaskList(base.selectedDate);
             SetTodayTaskConfig(base.selectedDate);
+        }
+
+        private void reloadButton_Click(object sender, EventArgs e)
+        {
+            SetAllTasksConfig();
         }
     }
 }

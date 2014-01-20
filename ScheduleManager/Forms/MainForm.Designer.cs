@@ -40,7 +40,9 @@
             this.afterLabel = new System.Windows.Forms.Label();
             this.foreLabel = new System.Windows.Forms.Label();
             this.allTaskTab = new System.Windows.Forms.TabPage();
-            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.AllTasksListBox = new System.Windows.Forms.ListBox();
+            this.reloadButton = new System.Windows.Forms.Button();
+            this.AllTaskLabel = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -165,7 +167,9 @@
             // 
             // allTaskTab
             // 
-            this.allTaskTab.Controls.Add(this.treeView1);
+            this.allTaskTab.Controls.Add(this.AllTasksListBox);
+            this.allTaskTab.Controls.Add(this.reloadButton);
+            this.allTaskTab.Controls.Add(this.AllTaskLabel);
             this.allTaskTab.Location = new System.Drawing.Point(4, 22);
             this.allTaskTab.Name = "allTaskTab";
             this.allTaskTab.Padding = new System.Windows.Forms.Padding(3);
@@ -174,13 +178,33 @@
             this.allTaskTab.Text = "全タスク";
             this.allTaskTab.UseVisualStyleBackColor = true;
             // 
-            // treeView1
+            // AllTasksListBox
             // 
-            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView1.Location = new System.Drawing.Point(3, 3);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(470, 450);
-            this.treeView1.TabIndex = 0;
+            this.AllTasksListBox.FormattingEnabled = true;
+            this.AllTasksListBox.ItemHeight = 12;
+            this.AllTasksListBox.Location = new System.Drawing.Point(8, 22);
+            this.AllTasksListBox.Name = "AllTasksListBox";
+            this.AllTasksListBox.Size = new System.Drawing.Size(462, 388);
+            this.AllTasksListBox.TabIndex = 3;
+            // 
+            // reloadButton
+            // 
+            this.reloadButton.Location = new System.Drawing.Point(392, 423);
+            this.reloadButton.Name = "reloadButton";
+            this.reloadButton.Size = new System.Drawing.Size(75, 23);
+            this.reloadButton.TabIndex = 2;
+            this.reloadButton.Text = "更新";
+            this.reloadButton.UseVisualStyleBackColor = true;
+            this.reloadButton.Click += new System.EventHandler(this.reloadButton_Click);
+            // 
+            // AllTaskLabel
+            // 
+            this.AllTaskLabel.AutoSize = true;
+            this.AllTaskLabel.Location = new System.Drawing.Point(9, 7);
+            this.AllTaskLabel.Name = "AllTaskLabel";
+            this.AllTaskLabel.Size = new System.Drawing.Size(42, 12);
+            this.AllTaskLabel.TabIndex = 1;
+            this.AllTaskLabel.Text = "全タスク";
             // 
             // tabControl
             // 
@@ -231,6 +255,7 @@
             this.todayTaskTab.ResumeLayout(false);
             this.todayTaskTab.PerformLayout();
             this.allTaskTab.ResumeLayout(false);
+            this.allTaskTab.PerformLayout();
             this.tabControl.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -253,11 +278,13 @@
         private System.Windows.Forms.Label afterLabel;
         private System.Windows.Forms.Label foreLabel;
         private System.Windows.Forms.TabPage allTaskTab;
-        private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem createNextDayScheduleToolStripMenuItem;
+        private System.Windows.Forms.Label AllTaskLabel;
+        private System.Windows.Forms.Button reloadButton;
+        private System.Windows.Forms.ListBox AllTasksListBox;
 
     }
 }
