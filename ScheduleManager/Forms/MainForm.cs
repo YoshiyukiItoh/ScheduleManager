@@ -188,6 +188,9 @@ namespace ScheduleManager
             string readFilePath = Path.Combine(new string[] { Common.TASKS_DIR, Common.TASK_FILES, today + Common.TXT_EXTENTION });
             if (!File.Exists(readFilePath))
             {
+                todayTask = new TaskList();
+                updateTodayTaskList();
+                updateDisplayItem();
                 return;
             }
             TaskList taskList = FileConfig.readTaskList(readFilePath);
@@ -226,17 +229,23 @@ namespace ScheduleManager
             // 午前
             // リストボックス初期化
             foreCBL.Items.Clear();
-            foreach (TaskElement ts in foreList)
+            if (foreList != null)
             {
-                foreCBL.Items.Add(ts.Task, ts.CheckState);
+                foreach (TaskElement ts in foreList)
+                {
+                    foreCBL.Items.Add(ts.Task, ts.CheckState);
+                }
             }
 
             // 午後
             // リストボックス初期化
             afterCBL.Items.Clear();
-            foreach (TaskElement ts in afterList)
+            if (afterList != null)
             {
-                afterCBL.Items.Add(ts.Task, ts.CheckState);
+                foreach (TaskElement ts in afterList)
+                {
+                    afterCBL.Items.Add(ts.Task, ts.CheckState);
+                }
             }
             updateDisplayItem();
         }
