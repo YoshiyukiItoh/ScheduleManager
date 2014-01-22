@@ -33,7 +33,7 @@ namespace ScheduleManager
             base.selectedDate = today;
             SetAllTasksConfig();
             SetTodayTaskConfig(today);
-            //updateDisplayItem();
+            updateDisplayItem();
         }
 
         private void SetAllTasksConfig()
