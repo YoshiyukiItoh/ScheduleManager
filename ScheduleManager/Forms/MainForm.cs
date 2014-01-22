@@ -227,28 +227,9 @@ namespace ScheduleManager
 
             // ListBoxに反映
             // 午前
-            // リストボックス初期化
             updateRowItems(foreList, ref foreCBL);
-            //foreCBL.Items.Clear();
-            //if (foreList != null)
-            //{
-            //    foreach (TaskElement ts in foreList)
-            //    {
-            //        foreCBL.Items.Add(ts.Task, ts.CheckState);
-            //    }
-            //}
-
             // 午後
-            // リストボックス初期化
             updateRowItems(afterList, ref afterCBL);
-            //afterCBL.Items.Clear();
-            //if (afterList != null)
-            //{
-            //    foreach (TaskElement ts in afterList)
-            //    {
-            //        afterCBL.Items.Add(ts.Task, ts.CheckState);
-            //    }
-            //}
             updateDisplayItem();
         }
 
