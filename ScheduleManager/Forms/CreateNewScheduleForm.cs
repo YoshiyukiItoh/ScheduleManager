@@ -38,9 +38,12 @@ namespace ScheduleManager
         /// </summary>
         ~CreateNewScheduleForm()
         {
-            if (todayTask != null)
+            if (todayTask.ForeTaskBlock != null)
             {
                 base.todayTask.ForeTaskBlock.Clear();
+            }
+            if (todayTask.AfterTaskBlock != null)
+            {
                 base.todayTask.AfterTaskBlock.Clear();
             }
         }
@@ -69,19 +72,23 @@ namespace ScheduleManager
         {
             string displayLabel;
             string displayButtonText;
+            string title;
             // 表示テキストを初期化
-            if (taskList == null)
+            if (taskList.ForeTaskBlock == null && taskList.AfterTaskBlock == null)
             {
                 displayLabel = base.todayDate + MESSAGE_CREATE;
                 displayButtonText = TXT_CREATE;
+                title = "CreateSchedule";
             }
             else
             {
                 displayLabel = base.todayDate + MESSAGE_EDIT;
                 displayButtonText = TXT_EDIT;
+                title = "EditSchedule";
             }
             this.createDateLabel.Text = displayLabel;
-            this.CreateButton.Text = displayButtonText;
+            this.createButton.Text = displayButtonText;
+            this.Text = title;
         }
 
         /// <summary>
@@ -89,7 +96,7 @@ namespace ScheduleManager
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void CreateButton_Click(object sender, EventArgs e)
+        private void createButton_Click(object sender, EventArgs e)
         {
             TaskBlock foreList = BlockToList(foreTB.Text);
             TaskBlock afterList = BlockToList(afterTB.Text);
@@ -150,7 +157,7 @@ namespace ScheduleManager
         /// </summary>
         private void CreateButtonControl()
         {
-            this.CreateButton.Enabled = this.foreTBEmpty || this.afterTBEmpty;
+            this.createButton.Enabled = this.foreTBEmpty || this.afterTBEmpty;
         }
 
         /// <summary>
@@ -158,7 +165,7 @@ namespace ScheduleManager
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void CancelButton_Click(object sender, EventArgs e)
+        private void cancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }

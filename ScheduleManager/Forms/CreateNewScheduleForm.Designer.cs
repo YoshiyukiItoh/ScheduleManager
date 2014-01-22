@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.CancelButton = new System.Windows.Forms.Button();
-            this.CreateButton = new System.Windows.Forms.Button();
+            this.cancelButton = new System.Windows.Forms.Button();
+            this.createButton = new System.Windows.Forms.Button();
             this.afterTB = new System.Windows.Forms.TextBox();
             this.afterLabel = new System.Windows.Forms.Label();
             this.foreTB = new System.Windows.Forms.TextBox();
@@ -37,26 +37,26 @@
             this.createDateLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // CancelButton
+            // cancelButton
             // 
-            this.CancelButton.Location = new System.Drawing.Point(397, 437);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(75, 23);
-            this.CancelButton.TabIndex = 6;
-            this.CancelButton.Text = "キャンセル";
-            this.CancelButton.UseVisualStyleBackColor = true;
-            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
+            this.cancelButton.Location = new System.Drawing.Point(397, 437);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(75, 23);
+            this.cancelButton.TabIndex = 6;
+            this.cancelButton.Text = "キャンセル";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
-            // CreateButton
+            // createButton
             // 
-            this.CreateButton.Enabled = false;
-            this.CreateButton.Location = new System.Drawing.Point(310, 437);
-            this.CreateButton.Name = "CreateButton";
-            this.CreateButton.Size = new System.Drawing.Size(75, 23);
-            this.CreateButton.TabIndex = 5;
-            this.CreateButton.Text = "作成";
-            this.CreateButton.UseVisualStyleBackColor = true;
-            this.CreateButton.Click += new System.EventHandler(this.CreateButton_Click);
+            this.createButton.Enabled = false;
+            this.createButton.Location = new System.Drawing.Point(310, 437);
+            this.createButton.Name = "createButton";
+            this.createButton.Size = new System.Drawing.Size(75, 23);
+            this.createButton.TabIndex = 5;
+            this.createButton.Text = "作成";
+            this.createButton.UseVisualStyleBackColor = true;
+            this.createButton.Click += new System.EventHandler(this.createButton_Click);
             // 
             // afterTB
             // 
@@ -108,8 +108,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 472);
-            this.Controls.Add(this.CancelButton);
-            this.Controls.Add(this.CreateButton);
+            this.Controls.Add(this.cancelButton);
+            this.Controls.Add(this.createButton);
             this.Controls.Add(this.afterTB);
             this.Controls.Add(this.afterLabel);
             this.Controls.Add(this.foreTB);
@@ -129,7 +129,7 @@
         private System.Windows.Forms.TextBox foreTB;
         private System.Windows.Forms.Label afterLabel;
         private System.Windows.Forms.TextBox afterTB;
-        private System.Windows.Forms.Button CreateButton;
-        private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.Button createButton;
+        private System.Windows.Forms.Button cancelButton;
     }
 }
