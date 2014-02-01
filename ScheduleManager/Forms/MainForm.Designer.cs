@@ -45,12 +45,26 @@
             this.reloadButton = new System.Windows.Forms.Button();
             this.AllTaskLabel = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
+            this.CalViewTab = new System.Windows.Forms.TabPage();
+            this.nextButton = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.PrevButton = new System.Windows.Forms.Button();
+            this.leftGroupBox = new System.Windows.Forms.GroupBox();
+            this.Sat1Label = new System.Windows.Forms.Label();
+            this.Fri1Label = new System.Windows.Forms.Label();
+            this.Thu1Label = new System.Windows.Forms.Label();
+            this.Wed1Label = new System.Windows.Forms.Label();
+            this.Tue1Label = new System.Windows.Forms.Label();
+            this.Mon1Label = new System.Windows.Forms.Label();
+            this.Sun1Label = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.createNextDayScheduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.todayTaskTab.SuspendLayout();
             this.allTaskTab.SuspendLayout();
             this.tabControl.SuspendLayout();
+            this.CalViewTab.SuspendLayout();
+            this.leftGroupBox.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -220,13 +234,141 @@
             // 
             // tabControl
             // 
-            this.tabControl.Controls.Add(this.todayTaskTab);
             this.tabControl.Controls.Add(this.allTaskTab);
+            this.tabControl.Controls.Add(this.todayTaskTab);
+            this.tabControl.Controls.Add(this.CalViewTab);
             this.tabControl.Location = new System.Drawing.Point(0, 22);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(484, 482);
             this.tabControl.TabIndex = 0;
+            // 
+            // CalViewTab
+            // 
+            this.CalViewTab.Controls.Add(this.nextButton);
+            this.CalViewTab.Controls.Add(this.groupBox1);
+            this.CalViewTab.Controls.Add(this.PrevButton);
+            this.CalViewTab.Controls.Add(this.leftGroupBox);
+            this.CalViewTab.Location = new System.Drawing.Point(4, 22);
+            this.CalViewTab.Name = "CalViewTab";
+            this.CalViewTab.Padding = new System.Windows.Forms.Padding(3);
+            this.CalViewTab.Size = new System.Drawing.Size(476, 456);
+            this.CalViewTab.TabIndex = 2;
+            this.CalViewTab.Text = "カレンダ";
+            this.CalViewTab.UseVisualStyleBackColor = true;
+            // 
+            // nextButton
+            // 
+            this.nextButton.Location = new System.Drawing.Point(408, 202);
+            this.nextButton.Name = "nextButton";
+            this.nextButton.Size = new System.Drawing.Size(49, 23);
+            this.nextButton.TabIndex = 2;
+            this.nextButton.Text = "＞";
+            this.nextButton.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(247, 17);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(210, 180);
+            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "xxxx年xx月";
+            // 
+            // PrevButton
+            // 
+            this.PrevButton.Location = new System.Drawing.Point(17, 202);
+            this.PrevButton.Name = "PrevButton";
+            this.PrevButton.Size = new System.Drawing.Size(49, 23);
+            this.PrevButton.TabIndex = 0;
+            this.PrevButton.Text = "＜";
+            this.PrevButton.UseVisualStyleBackColor = true;
+            // 
+            // leftGroupBox
+            // 
+            this.leftGroupBox.Controls.Add(this.Sat1Label);
+            this.leftGroupBox.Controls.Add(this.Fri1Label);
+            this.leftGroupBox.Controls.Add(this.Thu1Label);
+            this.leftGroupBox.Controls.Add(this.Wed1Label);
+            this.leftGroupBox.Controls.Add(this.Tue1Label);
+            this.leftGroupBox.Controls.Add(this.Mon1Label);
+            this.leftGroupBox.Controls.Add(this.Sun1Label);
+            this.leftGroupBox.Location = new System.Drawing.Point(17, 16);
+            this.leftGroupBox.Name = "leftGroupBox";
+            this.leftGroupBox.Size = new System.Drawing.Size(210, 180);
+            this.leftGroupBox.TabIndex = 0;
+            this.leftGroupBox.TabStop = false;
+            this.leftGroupBox.Text = "xxxx年xx月";
+            // 
+            // Sat1Label
+            // 
+            this.Sat1Label.AutoSize = true;
+            this.Sat1Label.ForeColor = System.Drawing.Color.Blue;
+            this.Sat1Label.Location = new System.Drawing.Point(187, 15);
+            this.Sat1Label.Name = "Sat1Label";
+            this.Sat1Label.Size = new System.Drawing.Size(17, 12);
+            this.Sat1Label.TabIndex = 6;
+            this.Sat1Label.Text = "土";
+            // 
+            // Fri1Label
+            // 
+            this.Fri1Label.AutoSize = true;
+            this.Fri1Label.ForeColor = System.Drawing.Color.Black;
+            this.Fri1Label.Location = new System.Drawing.Point(157, 15);
+            this.Fri1Label.Name = "Fri1Label";
+            this.Fri1Label.Size = new System.Drawing.Size(17, 12);
+            this.Fri1Label.TabIndex = 5;
+            this.Fri1Label.Text = "金";
+            // 
+            // Thu1Label
+            // 
+            this.Thu1Label.AutoSize = true;
+            this.Thu1Label.ForeColor = System.Drawing.Color.Black;
+            this.Thu1Label.Location = new System.Drawing.Point(127, 15);
+            this.Thu1Label.Name = "Thu1Label";
+            this.Thu1Label.Size = new System.Drawing.Size(17, 12);
+            this.Thu1Label.TabIndex = 4;
+            this.Thu1Label.Text = "木";
+            // 
+            // Wed1Label
+            // 
+            this.Wed1Label.AutoSize = true;
+            this.Wed1Label.ForeColor = System.Drawing.Color.Black;
+            this.Wed1Label.Location = new System.Drawing.Point(97, 15);
+            this.Wed1Label.Name = "Wed1Label";
+            this.Wed1Label.Size = new System.Drawing.Size(17, 12);
+            this.Wed1Label.TabIndex = 3;
+            this.Wed1Label.Text = "水";
+            // 
+            // Tue1Label
+            // 
+            this.Tue1Label.AutoSize = true;
+            this.Tue1Label.ForeColor = System.Drawing.Color.Black;
+            this.Tue1Label.Location = new System.Drawing.Point(67, 15);
+            this.Tue1Label.Name = "Tue1Label";
+            this.Tue1Label.Size = new System.Drawing.Size(17, 12);
+            this.Tue1Label.TabIndex = 2;
+            this.Tue1Label.Text = "火";
+            // 
+            // Mon1Label
+            // 
+            this.Mon1Label.AutoSize = true;
+            this.Mon1Label.ForeColor = System.Drawing.Color.Black;
+            this.Mon1Label.Location = new System.Drawing.Point(37, 15);
+            this.Mon1Label.Name = "Mon1Label";
+            this.Mon1Label.Size = new System.Drawing.Size(17, 12);
+            this.Mon1Label.TabIndex = 1;
+            this.Mon1Label.Text = "月";
+            // 
+            // Sun1Label
+            // 
+            this.Sun1Label.AutoSize = true;
+            this.Sun1Label.ForeColor = System.Drawing.Color.Red;
+            this.Sun1Label.Location = new System.Drawing.Point(7, 15);
+            this.Sun1Label.Name = "Sun1Label";
+            this.Sun1Label.Size = new System.Drawing.Size(17, 12);
+            this.Sun1Label.TabIndex = 0;
+            this.Sun1Label.Text = "日";
             // 
             // menuStrip1
             // 
@@ -269,6 +411,9 @@
             this.allTaskTab.ResumeLayout(false);
             this.allTaskTab.PerformLayout();
             this.tabControl.ResumeLayout(false);
+            this.CalViewTab.ResumeLayout(false);
+            this.leftGroupBox.ResumeLayout(false);
+            this.leftGroupBox.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -298,6 +443,18 @@
         private System.Windows.Forms.Button reloadButton;
         private System.Windows.Forms.ListBox AllTasksListBox;
         private System.Windows.Forms.Button EditAllTaskButton;
+        private System.Windows.Forms.TabPage CalViewTab;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button PrevButton;
+        private System.Windows.Forms.GroupBox leftGroupBox;
+        private System.Windows.Forms.Button nextButton;
+        private System.Windows.Forms.Label Sat1Label;
+        private System.Windows.Forms.Label Fri1Label;
+        private System.Windows.Forms.Label Thu1Label;
+        private System.Windows.Forms.Label Wed1Label;
+        private System.Windows.Forms.Label Tue1Label;
+        private System.Windows.Forms.Label Mon1Label;
+        private System.Windows.Forms.Label Sun1Label;
 
     }
 }

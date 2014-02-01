@@ -19,6 +19,8 @@ namespace ScheduleManager
         protected string selectedDate;
         // 編集する日付一覧
         protected string[] editDateList;
+        // 表示する左カレンダデータ
+        protected TextBox[] leftCalender;
 
         /// <summary>
         /// コンストラクタ
