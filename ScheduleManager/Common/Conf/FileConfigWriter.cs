@@ -15,7 +15,13 @@ namespace ScheduleManager
         {
         }
 
-        public static void writeConfig(string filePath, TaskList taskConfig, Encoding encoding)
+        /// <summary>
+        /// 当日タスクを書き込みます。
+        /// </summary>
+        /// <param name="filePath">ファイルパス</param>
+        /// <param name="taskConfig">当日タスク</param>
+        /// <param name="encoding">エンコーディング</param>
+        public static void writeTodayConfig(string filePath, TaskList taskConfig, Encoding encoding)
         {
             string FORE_START_TAG = String.Concat(new string[] { Common.ANGLE_BRACKET_BEGIN, Common.FORE_TAG, Common.ANGLE_BRACKET_END });
             string FORE_END_TAG = String.Concat(new string[] { Common.ANGLE_BRACKET_BEGIN, Common.SLASH, Common.FORE_TAG, Common.ANGLE_BRACKET_END });
@@ -39,6 +45,25 @@ namespace ScheduleManager
                 sWriter.Write(te.Task + Common.LINE_SEPARATOR);
             }
             sWriter.Write(AFTER_END_TAG + Common.LINE_SEPARATOR);
+
+            sWriter.Close();
+        }
+
+        /// <summary>
+        /// 全タスクを書き込みます。
+        /// </summary>
+        /// <param name="filePath">ファイルパス</param>
+        /// <param name="alltask">全タスク</param>
+        /// <param name="encoding">エンコーディング</param>
+        public static void writeAllConfig(string filePath, string[] alltask, Encoding encoding)
+        {
+            StreamWriter sWriter = new StreamWriter(filePath, false, encoding);
+
+            // TODO 内容書き込み
+            foreach(string task in alltask)
+            {
+                sWriter.Write(task + Common.LINE_SEPARATOR);
+            }
 
             sWriter.Close();
         }

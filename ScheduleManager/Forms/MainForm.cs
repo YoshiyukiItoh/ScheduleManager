@@ -57,7 +57,7 @@ namespace ScheduleManager
             if (base.alltasks != null)
             {
                 AllTasksListBox.Items.Clear();
-                AllTasksListBox.Items.AddRange(alltasks);
+                AllTasksListBox.Items.AddRange(base.alltasks);
             }
         }
 
@@ -332,7 +332,9 @@ namespace ScheduleManager
 
         private void EditAllTaskButton_Click(object sender, EventArgs e)
         {
-
+            EditAllTaskForm form = new EditAllTaskForm(base.alltasks);
+            form.ShowDialog();
+            SetAllTasksConfig();
         }
     }
 }

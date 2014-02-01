@@ -36,7 +36,17 @@ namespace ScheduleManager
         /// <param name="taskList"></param>
         public static void writeTaskList(string filePath, TaskList taskList)
         {
-            FileConfigWriter.writeConfig(filePath, taskList, new UTF8Encoding(false));
+            FileConfigWriter.writeTodayConfig(filePath, taskList, new UTF8Encoding(false));
+        }
+
+        /// <summary>
+        /// 指定した全タスクをUTF-8エンコードで書き込む
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <param name="allTask"></param>
+        public static void writeAllTask(string filePath, string[] allTask)
+        {
+            FileConfigWriter.writeAllConfig(filePath, allTask, new UTF8Encoding(false));
         }
     }
 }
