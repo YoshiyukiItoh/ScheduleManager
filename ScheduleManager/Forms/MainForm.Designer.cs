@@ -46,6 +46,7 @@
             this.AllTaskLabel = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.CalViewTab = new System.Windows.Forms.TabPage();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.nextButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.PrevButton = new System.Windows.Forms.Button();
@@ -245,6 +246,7 @@
             // 
             // CalViewTab
             // 
+            this.CalViewTab.Controls.Add(this.monthCalendar1);
             this.CalViewTab.Controls.Add(this.nextButton);
             this.CalViewTab.Controls.Add(this.groupBox1);
             this.CalViewTab.Controls.Add(this.PrevButton);
@@ -257,9 +259,17 @@
             this.CalViewTab.Text = "カレンダ";
             this.CalViewTab.UseVisualStyleBackColor = true;
             // 
+            // monthCalendar1
+            // 
+            this.monthCalendar1.CalendarDimensions = new System.Drawing.Size(2, 1);
+            this.monthCalendar1.Location = new System.Drawing.Point(17, 251);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.TabIndex = 3;
+            this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
+            // 
             // nextButton
             // 
-            this.nextButton.Location = new System.Drawing.Point(408, 202);
+            this.nextButton.Location = new System.Drawing.Point(408, 183);
             this.nextButton.Name = "nextButton";
             this.nextButton.Size = new System.Drawing.Size(49, 23);
             this.nextButton.TabIndex = 2;
@@ -270,14 +280,14 @@
             // 
             this.groupBox1.Location = new System.Drawing.Point(247, 17);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(210, 180);
+            this.groupBox1.Size = new System.Drawing.Size(210, 160);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "xxxx年xx月";
             // 
             // PrevButton
             // 
-            this.PrevButton.Location = new System.Drawing.Point(17, 202);
+            this.PrevButton.Location = new System.Drawing.Point(17, 182);
             this.PrevButton.Name = "PrevButton";
             this.PrevButton.Size = new System.Drawing.Size(49, 23);
             this.PrevButton.TabIndex = 0;
@@ -295,7 +305,7 @@
             this.leftGroupBox.Controls.Add(this.Sun1Label);
             this.leftGroupBox.Location = new System.Drawing.Point(17, 16);
             this.leftGroupBox.Name = "leftGroupBox";
-            this.leftGroupBox.Size = new System.Drawing.Size(210, 180);
+            this.leftGroupBox.Size = new System.Drawing.Size(210, 160);
             this.leftGroupBox.TabIndex = 0;
             this.leftGroupBox.TabStop = false;
             this.leftGroupBox.Text = "xxxx年xx月";
@@ -455,6 +465,7 @@
         private System.Windows.Forms.Label Tue1Label;
         private System.Windows.Forms.Label Mon1Label;
         private System.Windows.Forms.Label Sun1Label;
+        private System.Windows.Forms.MonthCalendar monthCalendar1;
 
     }
 }

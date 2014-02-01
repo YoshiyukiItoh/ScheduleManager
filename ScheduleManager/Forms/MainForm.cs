@@ -363,8 +363,8 @@ namespace ScheduleManager
                 leftCalender[i] = new TextBox();                         // 各Button生成 
                 leftCalender[i].Text = String.Format("{0:D2}", i);       // Text 設定 
                 //leftCalender[i].Location = new Point(100, i * 50 + 50);  // 位置設定
-                leftCalender[i].Location = new Point(7 + (i % 7) * 30, 30 + (i / 7) * 25);
-                leftCalender[i].Size = new Size(17, 10);
+                leftCalender[i].Location = new Point(7 + (i % 7) * 30, 30 + (i / 7) * 21);
+                leftCalender[i].Size = new Size(17, 7);
                 //leftCalender[i].ReadOnly = true;
                 if (i % 7 == 0) leftCalender[i].ForeColor = Color.Red;
                 else if (i % 7 == 6) leftCalender[i].ForeColor = Color.Blue;
@@ -372,6 +372,11 @@ namespace ScheduleManager
             }
             //this.Controls.AddRange(myButton);   //フォームコントロールへ配列 Button 追加
             this.leftGroupBox.Controls.AddRange(base.leftCalender);
+        }
+
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+
         }
     }
 }

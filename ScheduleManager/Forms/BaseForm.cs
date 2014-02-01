@@ -45,5 +45,17 @@ namespace ScheduleManager
             }
             return ret;
         }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // BaseForm
+            // 
+            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Name = "BaseForm";
+            this.ResumeLayout(false);
+
+        }
     }
 }

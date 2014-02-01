@@ -82,6 +82,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\BaseForm.resx">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\CreateNewScheduleForm.resx">
       <DependentUpon>CreateNewScheduleForm.cs</DependentUpon>
     </EmbeddedResource>
