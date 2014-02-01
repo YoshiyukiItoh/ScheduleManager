@@ -40,6 +40,7 @@
             this.afterLabel = new System.Windows.Forms.Label();
             this.foreLabel = new System.Windows.Forms.Label();
             this.allTaskTab = new System.Windows.Forms.TabPage();
+            this.EditAllTaskButton = new System.Windows.Forms.Button();
             this.AllTasksListBox = new System.Windows.Forms.ListBox();
             this.reloadButton = new System.Windows.Forms.Button();
             this.AllTaskLabel = new System.Windows.Forms.Label();
@@ -47,7 +48,6 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.createNextDayScheduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.EditAllTaskButton = new System.Windows.Forms.Button();
             this.todayTaskTab.SuspendLayout();
             this.allTaskTab.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -128,7 +128,7 @@
             this.afterCBL.FormattingEnabled = true;
             this.afterCBL.Location = new System.Drawing.Point(11, 245);
             this.afterCBL.Name = "afterCBL";
-            this.afterCBL.Size = new System.Drawing.Size(435, 172);
+            this.afterCBL.Size = new System.Drawing.Size(457, 172);
             this.afterCBL.TabIndex = 7;
             // 
             // foreCBL
@@ -136,7 +136,7 @@
             this.foreCBL.FormattingEnabled = true;
             this.foreCBL.Location = new System.Drawing.Point(11, 47);
             this.foreCBL.Name = "foreCBL";
-            this.foreCBL.Size = new System.Drawing.Size(435, 172);
+            this.foreCBL.Size = new System.Drawing.Size(457, 172);
             this.foreCBL.TabIndex = 6;
             // 
             // oneDayCB
@@ -179,6 +179,16 @@
             this.allTaskTab.TabIndex = 0;
             this.allTaskTab.Text = "全タスク";
             this.allTaskTab.UseVisualStyleBackColor = true;
+            // 
+            // EditAllTaskButton
+            // 
+            this.EditAllTaskButton.Location = new System.Drawing.Point(8, 428);
+            this.EditAllTaskButton.Name = "EditAllTaskButton";
+            this.EditAllTaskButton.Size = new System.Drawing.Size(75, 23);
+            this.EditAllTaskButton.TabIndex = 4;
+            this.EditAllTaskButton.Text = "編集";
+            this.EditAllTaskButton.UseVisualStyleBackColor = true;
+            this.EditAllTaskButton.Click += new System.EventHandler(this.EditAllTaskButton_Click);
             // 
             // AllTasksListBox
             // 
@@ -243,16 +253,6 @@
             this.createNextDayScheduleToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.createNextDayScheduleToolStripMenuItem.Text = "翌日のスケジュール作成";
             this.createNextDayScheduleToolStripMenuItem.Click += new System.EventHandler(this.createNextDayScheduleToolStripMenuItem_Click);
-            // 
-            // EditAllTaskButton
-            // 
-            this.EditAllTaskButton.Location = new System.Drawing.Point(8, 428);
-            this.EditAllTaskButton.Name = "EditAllTaskButton";
-            this.EditAllTaskButton.Size = new System.Drawing.Size(75, 23);
-            this.EditAllTaskButton.TabIndex = 4;
-            this.EditAllTaskButton.Text = "編集";
-            this.EditAllTaskButton.UseVisualStyleBackColor = true;
-            this.EditAllTaskButton.Click += new System.EventHandler(this.EditAllTaskButton_Click);
             // 
             // MainForm
             // 

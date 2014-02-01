@@ -12,7 +12,7 @@ namespace ScheduleManager
         protected TaskList todayTask;
 
         // 全タスク格納変数
-        // protected 
+        protected string[] alltasks;
         // アプリの起動日付
         protected string todayDate;
         // 選択日付
@@ -20,10 +20,17 @@ namespace ScheduleManager
         // 編集する日付一覧
         protected string[] editDateList;
 
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
         public BaseForm()
         {
         }
 
+        /// <summary>
+        /// 選択日付が日付一覧に含まれるかどうかチェックします。
+        /// </summary>
+        /// <returns>true : 含まれる/false : 含まれない</returns>
         public bool isRangeOfEditDateList()
         {
             bool ret = false;

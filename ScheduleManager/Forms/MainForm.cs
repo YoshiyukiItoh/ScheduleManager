@@ -31,7 +31,9 @@ namespace ScheduleManager
             string today = Common.getSystemDate();
             base.todayDate = today;
             base.selectedDate = today;
+            // 全タスクタブ情報更新
             SetAllTasksConfig();
+            // 当日タブ情報更新
             SetTodayTaskConfig(today);
             updateDisplayItem();
         }
@@ -41,16 +43,20 @@ namespace ScheduleManager
             // 読み込みファイルパス作成
             AllTasksListBox.Items.Clear();
             string ALL_TASKS_FILEPATH = Path.Combine(new string[] {Common.TASKS_DIR, Common.ALL_TASK_FILE});
-            string[] alltasks = null;
 
             if (File.Exists(ALL_TASKS_FILEPATH))
             {
-                alltasks = FileConfig.readAllTask(ALL_TASKS_FILEPATH);
+                base.alltasks = FileConfig.readAllTask(ALL_TASKS_FILEPATH);
+            }
+            else
+            {
+                base.alltasks = null;
             }
 
             // 全タスク反映
-            if (alltasks != null)
+            if (base.alltasks != null)
             {
+                AllTasksListBox.Items.Clear();
                 AllTasksListBox.Items.AddRange(alltasks);
             }
         }
@@ -275,6 +281,11 @@ namespace ScheduleManager
             rewriteCompleteLabel(todayTask.AfterTaskBlock, ref afterCompleteLavel);
         }
 
+        /// <summary>
+        /// 達成率の更新を行います。
+        /// </summary>
+        /// <param name="taskBlock"></param>
+        /// <param name="label"></param>
         private void rewriteCompleteLabel(TaskBlock taskBlock, ref Label label)
         {
             if (taskBlock != null && taskBlock.Count > 0)
@@ -289,6 +300,12 @@ namespace ScheduleManager
             label.Text = String.Format("{0:D2}/{1:D2} {2,3}%", 0, 0, 0);
         }
 
+        /// <summary>
+        /// コンボボックスの値が変更されたら、
+        /// 対応する予定ファイルの再読み込みを行います。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void oneDayCB_SelectedIndexChanged(object sender, EventArgs e)
         {
             base.selectedDate = (string)this.oneDayCB.SelectedItem;

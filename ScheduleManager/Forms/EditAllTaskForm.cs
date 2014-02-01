@@ -9,11 +9,12 @@ using System.Windows.Forms;
 
 namespace ScheduleManager.Forms
 {
-    public partial class EditAllTaskForm : Form
+    public partial class EditAllTaskForm : BaseForm
     {
-        public EditAllTaskForm()
+        public EditAllTaskForm(string[] alltasks)
         {
             InitializeComponent();
+            base.alltasks = alltasks;
         }
 
         /// <summary>

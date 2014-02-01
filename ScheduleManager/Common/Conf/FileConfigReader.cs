@@ -65,7 +65,7 @@ namespace ScheduleManager
             // streamのクローズ
             sReader.Close();
 
-            return retList.ToArray();
+            return retList.Count == 0 ? null : retList.ToArray();
         }
 
         /// <summary>
