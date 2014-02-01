@@ -115,12 +115,14 @@ namespace ScheduleManager
         }
 
         /// <summary>
-        /// 
+        /// タスクの状態変更をします。
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void taskUpdateButton_Click(object sender, EventArgs e)
         {
+            // TODO 関数に抜き出す
+
             // 午前
             // チェック済要素配列
             CheckedListBox.CheckedIndexCollection foreCheckedIndices = foreCBL.CheckedIndices;
@@ -316,20 +318,34 @@ namespace ScheduleManager
             readTodayTaskList(this.selectedDate);
         }
 
+        /// <summary>
+        /// 翌日の予定ファイルを作成します。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void createNextDayScheduleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             base.selectedDate = Common.getNextDay();
             CreateNewScheduleForm cnsf = new CreateNewScheduleForm(base.todayTask, base.selectedDate);
             cnsf.ShowDialog();
-            //readTodayTaskList(base.selectedDate);
             SetTodayTaskConfig(base.selectedDate);
         }
 
+        /// <summary>
+        /// 全タスクの更新処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void reloadButton_Click(object sender, EventArgs e)
         {
             SetAllTasksConfig();
         }
 
+        /// <summary>
+        /// 全タスクの編集処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EditAllTaskButton_Click(object sender, EventArgs e)
         {
             EditAllTaskForm form = new EditAllTaskForm(base.alltasks);
