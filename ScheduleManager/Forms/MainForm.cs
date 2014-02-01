@@ -312,5 +312,10 @@ namespace ScheduleManager
         {
             SetAllTasksConfig();
         }
+
+        private void EditAllTaskButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

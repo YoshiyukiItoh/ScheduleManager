@@ -63,7 +63,7 @@
             this.afterTB.Location = new System.Drawing.Point(17, 250);
             this.afterTB.Multiline = true;
             this.afterTB.Name = "afterTB";
-            this.afterTB.Size = new System.Drawing.Size(435, 172);
+            this.afterTB.Size = new System.Drawing.Size(446, 172);
             this.afterTB.TabIndex = 4;
             this.afterTB.TextChanged += new System.EventHandler(this.afterTB_TextChanged);
             // 
@@ -81,7 +81,7 @@
             this.foreTB.Location = new System.Drawing.Point(15, 55);
             this.foreTB.Multiline = true;
             this.foreTB.Name = "foreTB";
-            this.foreTB.Size = new System.Drawing.Size(435, 172);
+            this.foreTB.Size = new System.Drawing.Size(448, 172);
             this.foreTB.TabIndex = 2;
             this.foreTB.TextChanged += new System.EventHandler(this.foreTB_TextChanged);
             // 

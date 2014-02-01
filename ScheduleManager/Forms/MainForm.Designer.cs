@@ -47,6 +47,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.createNextDayScheduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.EditAllTaskButton = new System.Windows.Forms.Button();
             this.todayTaskTab.SuspendLayout();
             this.allTaskTab.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -167,6 +168,7 @@
             // 
             // allTaskTab
             // 
+            this.allTaskTab.Controls.Add(this.EditAllTaskButton);
             this.allTaskTab.Controls.Add(this.AllTasksListBox);
             this.allTaskTab.Controls.Add(this.reloadButton);
             this.allTaskTab.Controls.Add(this.AllTaskLabel);
@@ -184,12 +186,12 @@
             this.AllTasksListBox.ItemHeight = 12;
             this.AllTasksListBox.Location = new System.Drawing.Point(8, 22);
             this.AllTasksListBox.Name = "AllTasksListBox";
-            this.AllTasksListBox.Size = new System.Drawing.Size(462, 388);
+            this.AllTasksListBox.Size = new System.Drawing.Size(462, 400);
             this.AllTasksListBox.TabIndex = 3;
             // 
             // reloadButton
             // 
-            this.reloadButton.Location = new System.Drawing.Point(392, 423);
+            this.reloadButton.Location = new System.Drawing.Point(393, 427);
             this.reloadButton.Name = "reloadButton";
             this.reloadButton.Size = new System.Drawing.Size(75, 23);
             this.reloadButton.TabIndex = 2;
@@ -242,6 +244,16 @@
             this.createNextDayScheduleToolStripMenuItem.Text = "翌日のスケジュール作成";
             this.createNextDayScheduleToolStripMenuItem.Click += new System.EventHandler(this.createNextDayScheduleToolStripMenuItem_Click);
             // 
+            // EditAllTaskButton
+            // 
+            this.EditAllTaskButton.Location = new System.Drawing.Point(8, 428);
+            this.EditAllTaskButton.Name = "EditAllTaskButton";
+            this.EditAllTaskButton.Size = new System.Drawing.Size(75, 23);
+            this.EditAllTaskButton.TabIndex = 4;
+            this.EditAllTaskButton.Text = "編集";
+            this.EditAllTaskButton.UseVisualStyleBackColor = true;
+            this.EditAllTaskButton.Click += new System.EventHandler(this.EditAllTaskButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -285,6 +297,7 @@
         private System.Windows.Forms.Label AllTaskLabel;
         private System.Windows.Forms.Button reloadButton;
         private System.Windows.Forms.ListBox AllTasksListBox;
+        private System.Windows.Forms.Button EditAllTaskButton;
 
     }
 }
