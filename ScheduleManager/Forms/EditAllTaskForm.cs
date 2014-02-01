@@ -16,6 +16,10 @@ namespace ScheduleManager
         {
             InitializeComponent();
             base.alltasks = alltasks;
+            if (base.alltasks ==null)
+            {
+                return;
+            }
             init();
         }
 
