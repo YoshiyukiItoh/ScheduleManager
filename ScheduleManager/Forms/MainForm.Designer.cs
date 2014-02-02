@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.todayTaskTab = new System.Windows.Forms.TabPage();
+            this.afterAllCB = new System.Windows.Forms.CheckBox();
+            this.foreAllCB = new System.Windows.Forms.CheckBox();
             this.afterCompleteLavel = new System.Windows.Forms.Label();
             this.foreCompleteLavel = new System.Windows.Forms.Label();
             this.createNewScheduleButton = new System.Windows.Forms.Button();
@@ -71,6 +73,8 @@
             // 
             // todayTaskTab
             // 
+            this.todayTaskTab.Controls.Add(this.afterAllCB);
+            this.todayTaskTab.Controls.Add(this.foreAllCB);
             this.todayTaskTab.Controls.Add(this.afterCompleteLavel);
             this.todayTaskTab.Controls.Add(this.foreCompleteLavel);
             this.todayTaskTab.Controls.Add(this.createNewScheduleButton);
@@ -88,6 +92,26 @@
             this.todayTaskTab.TabIndex = 1;
             this.todayTaskTab.Text = "当日タスク";
             this.todayTaskTab.UseVisualStyleBackColor = true;
+            // 
+            // afterAllCB
+            // 
+            this.afterAllCB.AutoSize = true;
+            this.afterAllCB.Location = new System.Drawing.Point(3, 247);
+            this.afterAllCB.Name = "afterAllCB";
+            this.afterAllCB.Size = new System.Drawing.Size(15, 14);
+            this.afterAllCB.TabIndex = 14;
+            this.afterAllCB.UseVisualStyleBackColor = true;
+            this.afterAllCB.CheckedChanged += new System.EventHandler(this.afterAllCB_CheckedChanged);
+            // 
+            // foreAllCB
+            // 
+            this.foreAllCB.AutoSize = true;
+            this.foreAllCB.Location = new System.Drawing.Point(3, 49);
+            this.foreAllCB.Name = "foreAllCB";
+            this.foreAllCB.Size = new System.Drawing.Size(15, 14);
+            this.foreAllCB.TabIndex = 13;
+            this.foreAllCB.UseVisualStyleBackColor = true;
+            this.foreAllCB.CheckedChanged += new System.EventHandler(this.foreAllCB_CheckedChanged);
             // 
             // afterCompleteLavel
             // 
@@ -141,17 +165,17 @@
             // afterCBL
             // 
             this.afterCBL.FormattingEnabled = true;
-            this.afterCBL.Location = new System.Drawing.Point(11, 245);
+            this.afterCBL.Location = new System.Drawing.Point(20, 245);
             this.afterCBL.Name = "afterCBL";
-            this.afterCBL.Size = new System.Drawing.Size(457, 172);
+            this.afterCBL.Size = new System.Drawing.Size(448, 172);
             this.afterCBL.TabIndex = 7;
             // 
             // foreCBL
             // 
             this.foreCBL.FormattingEnabled = true;
-            this.foreCBL.Location = new System.Drawing.Point(11, 47);
+            this.foreCBL.Location = new System.Drawing.Point(20, 47);
             this.foreCBL.Name = "foreCBL";
-            this.foreCBL.Size = new System.Drawing.Size(457, 172);
+            this.foreCBL.Size = new System.Drawing.Size(448, 172);
             this.foreCBL.TabIndex = 6;
             // 
             // oneDayCB
@@ -265,7 +289,6 @@
             this.monthCalendar1.Location = new System.Drawing.Point(17, 251);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 3;
-            this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
             // 
             // nextButton
             // 
@@ -466,6 +489,8 @@
         private System.Windows.Forms.Label Mon1Label;
         private System.Windows.Forms.Label Sun1Label;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private System.Windows.Forms.CheckBox foreAllCB;
+        private System.Windows.Forms.CheckBox afterAllCB;
 
     }
 }

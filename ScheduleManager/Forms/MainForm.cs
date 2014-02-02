@@ -374,7 +374,22 @@ namespace ScheduleManager
             this.leftGroupBox.Controls.AddRange(base.leftCalender);
         }
 
-        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        /// <summary>
+        /// TODO
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void foreAllCB_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// TODO
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void afterAllCB_CheckedChanged(object sender, EventArgs e)
         {
 
         }
