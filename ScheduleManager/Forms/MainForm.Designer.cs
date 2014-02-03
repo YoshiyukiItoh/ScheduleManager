@@ -96,7 +96,7 @@
             // afterAllCB
             // 
             this.afterAllCB.AutoSize = true;
-            this.afterAllCB.Location = new System.Drawing.Point(3, 247);
+            this.afterAllCB.Location = new System.Drawing.Point(3, 230);
             this.afterAllCB.Name = "afterAllCB";
             this.afterAllCB.Size = new System.Drawing.Size(15, 14);
             this.afterAllCB.TabIndex = 14;
@@ -106,7 +106,7 @@
             // foreAllCB
             // 
             this.foreAllCB.AutoSize = true;
-            this.foreAllCB.Location = new System.Drawing.Point(3, 49);
+            this.foreAllCB.Location = new System.Drawing.Point(3, 33);
             this.foreAllCB.Name = "foreAllCB";
             this.foreAllCB.Size = new System.Drawing.Size(15, 14);
             this.foreAllCB.TabIndex = 13;
@@ -165,17 +165,17 @@
             // afterCBL
             // 
             this.afterCBL.FormattingEnabled = true;
-            this.afterCBL.Location = new System.Drawing.Point(20, 245);
+            this.afterCBL.Location = new System.Drawing.Point(11, 245);
             this.afterCBL.Name = "afterCBL";
-            this.afterCBL.Size = new System.Drawing.Size(448, 172);
+            this.afterCBL.Size = new System.Drawing.Size(457, 172);
             this.afterCBL.TabIndex = 7;
             // 
             // foreCBL
             // 
             this.foreCBL.FormattingEnabled = true;
-            this.foreCBL.Location = new System.Drawing.Point(20, 47);
+            this.foreCBL.Location = new System.Drawing.Point(11, 47);
             this.foreCBL.Name = "foreCBL";
-            this.foreCBL.Size = new System.Drawing.Size(448, 172);
+            this.foreCBL.Size = new System.Drawing.Size(457, 172);
             this.foreCBL.TabIndex = 6;
             // 
             // oneDayCB
@@ -190,7 +190,7 @@
             // afterLabel
             // 
             this.afterLabel.AutoSize = true;
-            this.afterLabel.Location = new System.Drawing.Point(9, 230);
+            this.afterLabel.Location = new System.Drawing.Point(18, 230);
             this.afterLabel.Name = "afterLabel";
             this.afterLabel.Size = new System.Drawing.Size(29, 12);
             this.afterLabel.TabIndex = 2;
@@ -199,7 +199,7 @@
             // foreLabel
             // 
             this.foreLabel.AutoSize = true;
-            this.foreLabel.Location = new System.Drawing.Point(8, 31);
+            this.foreLabel.Location = new System.Drawing.Point(18, 33);
             this.foreLabel.Name = "foreLabel";
             this.foreLabel.Size = new System.Drawing.Size(29, 12);
             this.foreLabel.TabIndex = 0;
