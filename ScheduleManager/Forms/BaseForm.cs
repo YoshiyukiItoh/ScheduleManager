@@ -20,7 +20,9 @@ namespace ScheduleManager
         // 編集する日付一覧
         protected string[] editDateList;
         // 表示する左カレンダデータ
-        protected TextBox[] leftCalender;
+        protected List<TextBox> leftCalender;
+        // 表示する右カレンダデータ
+        protected List<TextBox> rightCalender;
 
         /// <summary>
         /// コンストラクタ

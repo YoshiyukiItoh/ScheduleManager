@@ -357,21 +357,33 @@ namespace ScheduleManager
         // カレンダの作成処理
         private void createCalender()
         {
-            base.leftCalender = new TextBox[36];
-            for (int i = 0; i < leftCalender.Length; i++)
+            int y = int.Parse(base.todayDate.Split('-')[0]);
+            int m = int.Parse(base.todayDate.Split('-')[1]);
+            makeCalender(y, m, ref this.leftGroupBox, ref base.leftCalender);
+            makeCalender(y, m + 1, ref this.rightGroupBox, ref base.rightCalender);
+        }
+
+        private void makeCalender(int year, int month, ref GroupBox groupBox, ref List<TextBox> ltB)
+        {
+            groupBox.Text = String.Format("{0}年{1:D2}月", year, month);
+            int w = 0;
+            int e = 0;
+            w = Common.week_of_day(year, month, 1);       /* 1日の曜日を求める */
+            e = Common.month_last_day(year, month);       /* 月の最終日を求める */
+            ltB = new List<TextBox>();
+            for (int i = 1; i <= e; i++, w++)
             {
-                leftCalender[i] = new TextBox();                         // 各Button生成 
-                leftCalender[i].Text = String.Format("{0:D2}", i);       // Text 設定 
-                //leftCalender[i].Location = new Point(100, i * 50 + 50);  // 位置設定
-                leftCalender[i].Location = new Point(7 + (i % 7) * 30, 30 + (i / 7) * 21);
-                leftCalender[i].Size = new Size(17, 7);
-                //leftCalender[i].ReadOnly = true;
-                if (i % 7 == 0) leftCalender[i].ForeColor = Color.Red;
-                else if (i % 7 == 6) leftCalender[i].ForeColor = Color.Blue;
-                else leftCalender[i].ForeColor = Color.Black;
+                TextBox tBox = new TextBox();
+                tBox.Text = String.Format("{0:D2}", i);
+                tBox.Location = new Point(7 + (w % 7) * 30, 30 + (w / 7) * 21);
+                tBox.Size = new Size(17, 7);
+                if (w % 7 == 0) tBox.ForeColor = Color.Red;
+                else if (w % 7 == 6) tBox.ForeColor = Color.Blue;
+                else tBox.ForeColor = Color.Black;
+                ltB.Add(tBox);
             }
             //this.Controls.AddRange(myButton);   //フォームコントロールへ配列 Button 追加
-            this.leftGroupBox.Controls.AddRange(base.leftCalender);
+            groupBox.Controls.AddRange(ltB.ToArray());
         }
 
         /// <summary>

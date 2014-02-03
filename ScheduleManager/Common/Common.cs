@@ -122,5 +122,67 @@ namespace ScheduleManager
 
             return nextDay.ToString().Substring(0, 10).Replace("/", "-");
         }
+
+        /// <summary>
+        /// 曜日を求める。
+        /// </summary>
+        /// <param name="y">西暦年</param>
+        /// <param name="m">月</param>
+        /// <param name="d">日</param>
+        /// <returns>0=日 1=月 2=火 3=水 4=木 5=金 6=土</returns>
+        public static int week_of_day(int y, int m, int d)
+        {
+            if (m == 1)
+            {
+                y = y - 1;
+                m = 13;
+            }
+            else if (m == 2)
+            {
+                y = y - 1;
+                m = 14;
+            }
+            return (5 * y / 4 - y / 100 + y / 400 + (26 * m + 16) / 10 + d) % 7;
+        }
+
+        /// <summary>
+        /// 月の最終日を求める。
+        /// </summary>
+        /// <param name="y">西暦年</param>
+        /// <param name="m">月</param>
+        /// <returns>月の最終日</returns>
+        public static int month_last_day(int y, int m)
+        {
+            int d = 0;
+            int[] last = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+
+            if (m == 2)
+            {
+                d = last[m - 1] + is_leap_year(y);    /* 閏年なら+1 */
+            }
+            else if (m >= 1 && m <= 12)
+            {
+                d = last[m - 1];
+            }
+
+            return d;
+        }
+
+        /// <summary>
+        /// うるう年判定
+        /// </summary>
+        /// <param name="y">西暦年</param>
+        /// <returns>1:閏年　0:閏年以外</returns>
+        private static int is_leap_year(int y)
+        {
+            int rc = 0;
+
+            if (y % 4 == 0 && (y % 100 != 0 || y % 400 == 0))
+            {
+                rc = 1;
+            }
+
+            return rc;
+        }
     }
 }
