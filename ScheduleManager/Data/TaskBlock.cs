@@ -15,7 +15,7 @@ namespace ScheduleManager
         }
 
         /// <summary>
-        /// check済の
+        /// check済のタスク数を取得します。
         /// </summary>
         /// <returns></returns>
         public int getCheckedTaskCount()

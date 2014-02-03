@@ -50,6 +50,13 @@
             this.CalViewTab = new System.Windows.Forms.TabPage();
             this.nextButton = new System.Windows.Forms.Button();
             this.rightGroupBox = new System.Windows.Forms.GroupBox();
+            this.Sat2Label = new System.Windows.Forms.Label();
+            this.Fri2Label = new System.Windows.Forms.Label();
+            this.Thu2Label = new System.Windows.Forms.Label();
+            this.Wed2Label = new System.Windows.Forms.Label();
+            this.Tue2Label = new System.Windows.Forms.Label();
+            this.Mon2Label = new System.Windows.Forms.Label();
+            this.Sun2Label = new System.Windows.Forms.Label();
             this.PrevButton = new System.Windows.Forms.Button();
             this.leftGroupBox = new System.Windows.Forms.GroupBox();
             this.Sat1Label = new System.Windows.Forms.Label();
@@ -62,13 +69,6 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.createNextDayScheduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Sun2Label = new System.Windows.Forms.Label();
-            this.Sat2Label = new System.Windows.Forms.Label();
-            this.Fri2Label = new System.Windows.Forms.Label();
-            this.Thu2Label = new System.Windows.Forms.Label();
-            this.Wed2Label = new System.Windows.Forms.Label();
-            this.Tue2Label = new System.Windows.Forms.Label();
-            this.Mon2Label = new System.Windows.Forms.Label();
             this.todayTaskTab.SuspendLayout();
             this.allTaskTab.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -172,17 +172,17 @@
             // afterCBL
             // 
             this.afterCBL.FormattingEnabled = true;
-            this.afterCBL.Location = new System.Drawing.Point(11, 245);
+            this.afterCBL.Location = new System.Drawing.Point(20, 245);
             this.afterCBL.Name = "afterCBL";
-            this.afterCBL.Size = new System.Drawing.Size(457, 172);
+            this.afterCBL.Size = new System.Drawing.Size(434, 172);
             this.afterCBL.TabIndex = 7;
             // 
             // foreCBL
             // 
             this.foreCBL.FormattingEnabled = true;
-            this.foreCBL.Location = new System.Drawing.Point(11, 47);
+            this.foreCBL.Location = new System.Drawing.Point(20, 47);
             this.foreCBL.Name = "foreCBL";
-            this.foreCBL.Size = new System.Drawing.Size(457, 172);
+            this.foreCBL.Size = new System.Drawing.Size(434, 172);
             this.foreCBL.TabIndex = 6;
             // 
             // oneDayCB
@@ -314,6 +314,76 @@
             this.rightGroupBox.TabStop = false;
             this.rightGroupBox.Text = "xxxx年xx月";
             // 
+            // Sat2Label
+            // 
+            this.Sat2Label.AutoSize = true;
+            this.Sat2Label.ForeColor = System.Drawing.Color.Blue;
+            this.Sat2Label.Location = new System.Drawing.Point(187, 15);
+            this.Sat2Label.Name = "Sat2Label";
+            this.Sat2Label.Size = new System.Drawing.Size(17, 12);
+            this.Sat2Label.TabIndex = 12;
+            this.Sat2Label.Text = "土";
+            // 
+            // Fri2Label
+            // 
+            this.Fri2Label.AutoSize = true;
+            this.Fri2Label.ForeColor = System.Drawing.Color.Black;
+            this.Fri2Label.Location = new System.Drawing.Point(157, 15);
+            this.Fri2Label.Name = "Fri2Label";
+            this.Fri2Label.Size = new System.Drawing.Size(17, 12);
+            this.Fri2Label.TabIndex = 11;
+            this.Fri2Label.Text = "金";
+            // 
+            // Thu2Label
+            // 
+            this.Thu2Label.AutoSize = true;
+            this.Thu2Label.ForeColor = System.Drawing.Color.Black;
+            this.Thu2Label.Location = new System.Drawing.Point(127, 15);
+            this.Thu2Label.Name = "Thu2Label";
+            this.Thu2Label.Size = new System.Drawing.Size(17, 12);
+            this.Thu2Label.TabIndex = 10;
+            this.Thu2Label.Text = "木";
+            // 
+            // Wed2Label
+            // 
+            this.Wed2Label.AutoSize = true;
+            this.Wed2Label.ForeColor = System.Drawing.Color.Black;
+            this.Wed2Label.Location = new System.Drawing.Point(97, 15);
+            this.Wed2Label.Name = "Wed2Label";
+            this.Wed2Label.Size = new System.Drawing.Size(17, 12);
+            this.Wed2Label.TabIndex = 9;
+            this.Wed2Label.Text = "水";
+            // 
+            // Tue2Label
+            // 
+            this.Tue2Label.AutoSize = true;
+            this.Tue2Label.ForeColor = System.Drawing.Color.Black;
+            this.Tue2Label.Location = new System.Drawing.Point(67, 15);
+            this.Tue2Label.Name = "Tue2Label";
+            this.Tue2Label.Size = new System.Drawing.Size(17, 12);
+            this.Tue2Label.TabIndex = 8;
+            this.Tue2Label.Text = "火";
+            // 
+            // Mon2Label
+            // 
+            this.Mon2Label.AutoSize = true;
+            this.Mon2Label.ForeColor = System.Drawing.Color.Black;
+            this.Mon2Label.Location = new System.Drawing.Point(37, 15);
+            this.Mon2Label.Name = "Mon2Label";
+            this.Mon2Label.Size = new System.Drawing.Size(17, 12);
+            this.Mon2Label.TabIndex = 7;
+            this.Mon2Label.Text = "月";
+            // 
+            // Sun2Label
+            // 
+            this.Sun2Label.AutoSize = true;
+            this.Sun2Label.ForeColor = System.Drawing.Color.Red;
+            this.Sun2Label.Location = new System.Drawing.Point(7, 15);
+            this.Sun2Label.Name = "Sun2Label";
+            this.Sun2Label.Size = new System.Drawing.Size(17, 12);
+            this.Sun2Label.TabIndex = 1;
+            this.Sun2Label.Text = "日";
+            // 
             // PrevButton
             // 
             this.PrevButton.Location = new System.Drawing.Point(17, 182);
@@ -434,76 +504,6 @@
             this.createNextDayScheduleToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.createNextDayScheduleToolStripMenuItem.Text = "翌日のスケジュール作成";
             this.createNextDayScheduleToolStripMenuItem.Click += new System.EventHandler(this.createNextDayScheduleToolStripMenuItem_Click);
-            // 
-            // Sun2Label
-            // 
-            this.Sun2Label.AutoSize = true;
-            this.Sun2Label.ForeColor = System.Drawing.Color.Red;
-            this.Sun2Label.Location = new System.Drawing.Point(7, 15);
-            this.Sun2Label.Name = "Sun2Label";
-            this.Sun2Label.Size = new System.Drawing.Size(17, 12);
-            this.Sun2Label.TabIndex = 1;
-            this.Sun2Label.Text = "日";
-            // 
-            // Sat2Label
-            // 
-            this.Sat2Label.AutoSize = true;
-            this.Sat2Label.ForeColor = System.Drawing.Color.Blue;
-            this.Sat2Label.Location = new System.Drawing.Point(187, 15);
-            this.Sat2Label.Name = "Sat2Label";
-            this.Sat2Label.Size = new System.Drawing.Size(17, 12);
-            this.Sat2Label.TabIndex = 12;
-            this.Sat2Label.Text = "土";
-            // 
-            // Fri2Label
-            // 
-            this.Fri2Label.AutoSize = true;
-            this.Fri2Label.ForeColor = System.Drawing.Color.Black;
-            this.Fri2Label.Location = new System.Drawing.Point(157, 15);
-            this.Fri2Label.Name = "Fri2Label";
-            this.Fri2Label.Size = new System.Drawing.Size(17, 12);
-            this.Fri2Label.TabIndex = 11;
-            this.Fri2Label.Text = "金";
-            // 
-            // Thu2Label
-            // 
-            this.Thu2Label.AutoSize = true;
-            this.Thu2Label.ForeColor = System.Drawing.Color.Black;
-            this.Thu2Label.Location = new System.Drawing.Point(127, 15);
-            this.Thu2Label.Name = "Thu2Label";
-            this.Thu2Label.Size = new System.Drawing.Size(17, 12);
-            this.Thu2Label.TabIndex = 10;
-            this.Thu2Label.Text = "木";
-            // 
-            // Wed2Label
-            // 
-            this.Wed2Label.AutoSize = true;
-            this.Wed2Label.ForeColor = System.Drawing.Color.Black;
-            this.Wed2Label.Location = new System.Drawing.Point(97, 15);
-            this.Wed2Label.Name = "Wed2Label";
-            this.Wed2Label.Size = new System.Drawing.Size(17, 12);
-            this.Wed2Label.TabIndex = 9;
-            this.Wed2Label.Text = "水";
-            // 
-            // Tue2Label
-            // 
-            this.Tue2Label.AutoSize = true;
-            this.Tue2Label.ForeColor = System.Drawing.Color.Black;
-            this.Tue2Label.Location = new System.Drawing.Point(67, 15);
-            this.Tue2Label.Name = "Tue2Label";
-            this.Tue2Label.Size = new System.Drawing.Size(17, 12);
-            this.Tue2Label.TabIndex = 8;
-            this.Tue2Label.Text = "火";
-            // 
-            // Mon2Label
-            // 
-            this.Mon2Label.AutoSize = true;
-            this.Mon2Label.ForeColor = System.Drawing.Color.Black;
-            this.Mon2Label.Location = new System.Drawing.Point(37, 15);
-            this.Mon2Label.Name = "Mon2Label";
-            this.Mon2Label.Size = new System.Drawing.Size(17, 12);
-            this.Mon2Label.TabIndex = 7;
-            this.Mon2Label.Text = "月";
             // 
             // MainForm
             // 

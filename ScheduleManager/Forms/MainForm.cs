@@ -393,7 +393,23 @@ namespace ScheduleManager
         /// <param name="e"></param>
         private void foreAllCB_CheckedChanged(object sender, EventArgs e)
         {
+            bool checkflg = foreAllCB.Checked;
 
+            if (base.todayTask.ForeTaskBlock == null)
+            {
+                return;
+            }
+
+            for (int i = 0; i < base.todayTask.ForeTaskBlock.Count; i++)
+            {
+                if (checkflg) base.todayTask.ForeTaskBlock[i].CheckState = true;
+                else
+                {
+                    if (base.todayTask.ForeTaskBlock[i].Task.IndexOf(Common.STATE_COMPLETE) < 0) base.todayTask.ForeTaskBlock[i].CheckState = false;
+                }
+            }
+
+            updateRowItems(base.todayTask.ForeTaskBlock, ref foreCBL);
         }
 
         /// <summary>
@@ -403,7 +419,40 @@ namespace ScheduleManager
         /// <param name="e"></param>
         private void afterAllCB_CheckedChanged(object sender, EventArgs e)
         {
+            bool checkflg = afterAllCB.Checked;
 
+            if (base.todayTask.AfterTaskBlock == null)
+            {
+                return;
+            }
+
+            for (int i = 0; i < base.todayTask.AfterTaskBlock.Count; i++)
+            {
+                if (checkflg) base.todayTask.AfterTaskBlock[i].CheckState = true;
+                else
+                {
+                    if (base.todayTask.AfterTaskBlock[i].Task.IndexOf(Common.STATE_COMPLETE) < 0) base.todayTask.AfterTaskBlock[i].CheckState = false;
+                }
+            }
+
+            updateRowItems(base.todayTask.AfterTaskBlock, ref afterCBL);
+        }
+
+        private void updateAllCB(bool flg, ref TaskBlock tb)
+        {
+            if (tb == null)
+            {
+                return;
+            }
+
+            for (int i = 0; i < tb.Count; i++)
+            {
+                if (flg) tb[i].CheckState = true;
+                else
+                {
+                    if (tb[i].Task.IndexOf(Common.STATE_COMPLETE) < 0) tb[i].CheckState = false;
+                }
+            }
         }
     }
 }
