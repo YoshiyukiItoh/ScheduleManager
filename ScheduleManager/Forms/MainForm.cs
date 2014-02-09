@@ -94,7 +94,9 @@ namespace ScheduleManager
             }
 
             Array.Sort(editDateList);
-
+            // 要素を一時削除
+            this.oneDayCB.Items.Clear();
+            // プルダウンに日付一覧を追加
             this.oneDayCB.Items.AddRange(base.editDateList);
             if (editDateList.Length > 0)
             {
