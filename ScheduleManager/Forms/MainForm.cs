@@ -359,20 +359,33 @@ namespace ScheduleManager
         // カレンダの作成処理
         private void createCalender()
         {
-            int y = int.Parse(base.todayDate.Split('-')[0]);
-            int m = int.Parse(base.todayDate.Split('-')[1]);
-            makeCalender(y, m, ref this.leftGroupBox, ref base.leftCalender);
-            makeCalender(y, m + 1, ref this.rightGroupBox, ref base.rightCalender);
+            // 左側のカレンダ情報作成
+            base.leftCalInfo = new CalInfo();
+            base.leftCalInfo.year = int.Parse(base.todayDate.Split('-')[0]);
+            base.leftCalInfo.month = int.Parse(base.todayDate.Split('-')[1]);
+            // 右側のカレンダ情報作成
+            base.rightCalInfo = SetCalInfo(base.leftCalInfo, calCtl.next);
+            // カレンダ作成
+            makeCalender(base.leftCalInfo.year, base.leftCalInfo.month, ref this.leftGroupBox, ref base.leftCalender);
+            makeCalender(base.rightCalInfo.year, base.rightCalInfo.month, ref this.rightGroupBox, ref base.rightCalender);
         }
 
-        private void makeCalender(int year, int month, ref GroupBox groupBox, ref List<TextBox> ltB)
+        private void makeCalender(int year, int month, ref GroupBox groupBox, ref List<Control> ltB)
         {
+            // 既存コントロール削除
+            groupBox.Controls.Clear();
+            // 曜日ラベル作成
+            makeWeekLabel();
+            //groupBox.Controls.AddRange(base.weekLabel.ToArray());
+
             groupBox.Text = String.Format("{0}年{1:D2}月", year, month);
             int w = 0;
             int e = 0;
             w = Common.week_of_day(year, month, 1);       /* 1日の曜日を求める */
             e = Common.month_last_day(year, month);       /* 月の最終日を求める */
-            ltB = new List<TextBox>();
+            ltB = new List<Control>();
+            ltB.AddRange(base.weekLabel.ToArray());
+
             for (int i = 1; i <= e; i++, w++)
             {
                 TextBox tBox = new TextBox();
@@ -384,8 +397,98 @@ namespace ScheduleManager
                 else tBox.ForeColor = Color.Black;
                 ltB.Add(tBox);
             }
-            //this.Controls.AddRange(myButton);   //フォームコントロールへ配列 Button 追加
             groupBox.Controls.AddRange(ltB.ToArray());
+            return;
+        }
+
+        /// <summary>
+        /// カレンダ情報の作成を行います。
+        /// </summary>
+        /// <param name="year">計算ベースとする年</param>
+        /// <param name="month">計算ベースとする月</param>
+        /// <param name="prevNextFlg"></param>
+        /// <param name="calInfo"></param>
+        private CalInfo SetCalInfo(CalInfo calInfo, calCtl flg)
+        {
+            CalInfo retCalInfo = new CalInfo();
+            int retmonth = 0;
+            // 前月の場合
+            if (flg == calCtl.prev)
+            {
+                retmonth = calInfo.month - 1;
+                switch (retmonth)
+                {
+                    case 0:
+                        retCalInfo.month = 12;
+                        retCalInfo.year = calInfo.year - 1;
+                        break;
+                    default:
+                        retCalInfo.month = retmonth;
+                        retCalInfo.year = calInfo.year;
+                        break;
+                }
+            }
+            else
+            {
+                retmonth = calInfo.month + 1;
+                switch (retmonth)
+                {
+                    case 13:
+                        retCalInfo.month = 1;
+                        retCalInfo.year = calInfo.year + 1;
+                        break;
+                    default:
+                        retCalInfo.month = retmonth;
+                        retCalInfo.year = calInfo.year;
+                        break;
+                }
+            }
+            return retCalInfo;
+        }
+
+        private void makeWeekLabel()
+        {
+            if (base.weekLabel == null)
+            {
+                base.weekLabel = new List<Label>();
+                for (int i = 0; i < 7; i++)
+                {
+                    Label workLabel = new Label();
+                    workLabel.Size = new Size(17, 12);
+                    workLabel.Text = "日";
+                    workLabel.Location = new Point(i * 30 + 7, 15);
+                    workLabel.Visible = true;
+                    switch (i)
+                    {
+                        case 0:
+                            workLabel.Text = "日";
+                            workLabel.ForeColor = Color.Red;
+                            break;
+                        case 1:
+                            workLabel.Text = "月";
+                            break;
+                        case 2:
+                            workLabel.Text = "火";
+                            break;
+                        case 3:
+                            workLabel.Text = "水";
+                            break;
+                        case 4:
+                            workLabel.Text = "木";
+                            break;
+                        case 5:
+                            workLabel.Text = "金";
+                            break;
+                        case 6:
+                            workLabel.Text = "土";
+                            workLabel.ForeColor = Color.Blue;
+                            break;
+                        default:
+                            break;
+                    }
+                    base.weekLabel.Add(workLabel);
+                }
+            }
         }
 
         /// <summary>
@@ -455,6 +558,25 @@ namespace ScheduleManager
                     if (tb[i].Task.IndexOf(Common.STATE_COMPLETE) < 0) tb[i].CheckState = false;
                 }
             }
+        }
+
+        private void PrevButton_Click(object sender, EventArgs e)
+        {
+            base.rightCalInfo = base.leftCalInfo;
+            base.leftCalInfo = SetCalInfo(base.rightCalInfo, calCtl.prev);
+            // カレンダ作成
+            makeCalender(base.leftCalInfo.year, base.leftCalInfo.month, ref this.leftGroupBox, ref base.leftCalender);
+            makeCalender(base.rightCalInfo.year, base.rightCalInfo.month, ref this.rightGroupBox, ref base.rightCalender);
+        }
+
+        private void nextButton_Click(object sender, EventArgs e)
+        {
+            base.leftCalInfo = base.rightCalInfo;
+            base.rightCalInfo = SetCalInfo(base.leftCalInfo, calCtl.next);
+            // カレンダ作成
+            makeCalender(base.leftCalInfo.year, base.leftCalInfo.month, ref this.leftGroupBox, ref base.leftCalender);
+            makeCalender(base.rightCalInfo.year, base.rightCalInfo.month, ref this.rightGroupBox, ref base.rightCalender);
+
         }
     }
 }

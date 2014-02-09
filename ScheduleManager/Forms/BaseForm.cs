@@ -6,6 +6,12 @@ using System.Windows.Forms;
 
 namespace ScheduleManager
 {
+    public enum calCtl
+    {
+        prev = 0,
+        next
+    }
+
     public class BaseForm : Form
     {
         // 当日タスク格納変数
@@ -19,10 +25,19 @@ namespace ScheduleManager
         protected string selectedDate;
         // 編集する日付一覧
         protected string[] editDateList;
+        protected List<Label> weekLabel;
         // 表示する左カレンダデータ
-        protected List<TextBox> leftCalender;
+        protected List<Control> leftCalender;
+        protected CalInfo leftCalInfo;
         // 表示する右カレンダデータ
-        protected List<TextBox> rightCalender;
+        protected List<Control> rightCalender;
+        protected CalInfo rightCalInfo;
+
+        public class CalInfo
+        {
+            public int year { get; set; }
+            public int month { get; set; }
+        }
 
         /// <summary>
         /// コンストラクタ

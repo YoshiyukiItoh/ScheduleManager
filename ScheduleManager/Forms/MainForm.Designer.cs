@@ -297,6 +297,7 @@
             this.nextButton.TabIndex = 2;
             this.nextButton.Text = "＞";
             this.nextButton.UseVisualStyleBackColor = true;
+            this.nextButton.Click += new System.EventHandler(this.nextButton_Click);
             // 
             // rightGroupBox
             // 
@@ -392,6 +393,7 @@
             this.PrevButton.TabIndex = 0;
             this.PrevButton.Text = "＜";
             this.PrevButton.UseVisualStyleBackColor = true;
+            this.PrevButton.Click += new System.EventHandler(this.PrevButton_Click);
             // 
             // leftGroupBox
             // 
