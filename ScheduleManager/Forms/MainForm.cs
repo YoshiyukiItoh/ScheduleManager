@@ -359,6 +359,8 @@ namespace ScheduleManager
         // カレンダの作成処理
         private void createCalender()
         {
+            // 曜日ラベル作成
+            makeWeekLabel();
             // 左側のカレンダ情報作成
             base.leftCalInfo = new CalInfo();
             base.leftCalInfo.year = int.Parse(base.todayDate.Split('-')[0]);
@@ -366,25 +368,22 @@ namespace ScheduleManager
             // 右側のカレンダ情報作成
             base.rightCalInfo = SetCalInfo(base.leftCalInfo, calCtl.next);
             // カレンダ作成
-            makeCalender(base.leftCalInfo.year, base.leftCalInfo.month, ref this.leftGroupBox, ref base.leftCalender);
-            makeCalender(base.rightCalInfo.year, base.rightCalInfo.month, ref this.rightGroupBox, ref base.rightCalender);
+            makeCalender(base.rightCalInfo.year, base.rightCalInfo.month, ref this.rightGroupBox, ref base.rightCalender, ref base.leftWeekLabel);
+            makeCalender(base.leftCalInfo.year, base.leftCalInfo.month, ref this.leftGroupBox, ref base.leftCalender, ref base.rightWeekLabel);
         }
 
-        private void makeCalender(int year, int month, ref GroupBox groupBox, ref List<Control> ltB)
+        private void makeCalender(int year, int month, ref GroupBox groupBox, ref List<Control> lC, ref List<Label> ltB)
         {
             // 既存コントロール削除
             groupBox.Controls.Clear();
-            // 曜日ラベル作成
-            makeWeekLabel();
-            //groupBox.Controls.AddRange(base.weekLabel.ToArray());
 
             groupBox.Text = String.Format("{0}年{1:D2}月", year, month);
             int w = 0;
             int e = 0;
             w = Common.week_of_day(year, month, 1);       /* 1日の曜日を求める */
             e = Common.month_last_day(year, month);       /* 月の最終日を求める */
-            ltB = new List<Control>();
-            ltB.AddRange(base.weekLabel.ToArray());
+            lC = new List<Control>();
+            lC.AddRange(ltB.ToArray());
 
             for (int i = 1; i <= e; i++, w++)
             {
@@ -395,10 +394,9 @@ namespace ScheduleManager
                 if (w % 7 == 0) tBox.ForeColor = Color.Red;
                 else if (w % 7 == 6) tBox.ForeColor = Color.Blue;
                 else tBox.ForeColor = Color.Black;
-                ltB.Add(tBox);
+                lC.Add(tBox);
             }
-            groupBox.Controls.AddRange(ltB.ToArray());
-            return;
+            groupBox.Controls.AddRange(lC.ToArray());
         }
 
         /// <summary>
@@ -448,45 +446,61 @@ namespace ScheduleManager
 
         private void makeWeekLabel()
         {
-            if (base.weekLabel == null)
+            if (base.leftWeekLabel == null && base.rightWeekLabel == null)
             {
-                base.weekLabel = new List<Label>();
+                base.leftWeekLabel = new List<Label>();
+                base.rightWeekLabel = new List<Label>();
                 for (int i = 0; i < 7; i++)
                 {
-                    Label workLabel = new Label();
-                    workLabel.Size = new Size(17, 12);
-                    workLabel.Text = "日";
-                    workLabel.Location = new Point(i * 30 + 7, 15);
-                    workLabel.Visible = true;
+                    Label leftWorkLabel = new Label();
+                    Label rightWorkLabel = new Label();
+                    leftWorkLabel.Size = new Size(17, 12);
+                    leftWorkLabel.Text = "日";
+                    leftWorkLabel.Location = new Point(i * 30 + 7, 15);
+                    leftWorkLabel.Visible = true;
+                    rightWorkLabel.Size = new Size(17, 12);
+                    rightWorkLabel.Text = "日";
+                    rightWorkLabel.Location = new Point(i * 30 + 7, 15);
+                    rightWorkLabel.Visible = true;
                     switch (i)
                     {
                         case 0:
-                            workLabel.Text = "日";
-                            workLabel.ForeColor = Color.Red;
+                            leftWorkLabel.Text = "日";
+                            leftWorkLabel.ForeColor = Color.Red;
+                            rightWorkLabel.Text = "日";
+                            rightWorkLabel.ForeColor = Color.Red;
                             break;
                         case 1:
-                            workLabel.Text = "月";
+                            leftWorkLabel.Text = "月";
+                            rightWorkLabel.Text = "月";
                             break;
                         case 2:
-                            workLabel.Text = "火";
+                            leftWorkLabel.Text = "火";
+                            rightWorkLabel.Text = "火";
                             break;
                         case 3:
-                            workLabel.Text = "水";
+                            leftWorkLabel.Text = "水";
+                            rightWorkLabel.Text = "水";
                             break;
                         case 4:
-                            workLabel.Text = "木";
+                            leftWorkLabel.Text = "木";
+                            rightWorkLabel.Text = "木";
                             break;
                         case 5:
-                            workLabel.Text = "金";
+                            leftWorkLabel.Text = "金";
+                            rightWorkLabel.Text = "金";
                             break;
                         case 6:
-                            workLabel.Text = "土";
-                            workLabel.ForeColor = Color.Blue;
+                            leftWorkLabel.Text = "土";
+                            leftWorkLabel.ForeColor = Color.Blue;
+                            rightWorkLabel.Text = "土";
+                            rightWorkLabel.ForeColor = Color.Blue;
                             break;
                         default:
                             break;
                     }
-                    base.weekLabel.Add(workLabel);
+                    base.leftWeekLabel.Add(leftWorkLabel);
+                    base.rightWeekLabel.Add(rightWorkLabel);
                 }
             }
         }
@@ -565,8 +579,8 @@ namespace ScheduleManager
             base.rightCalInfo = base.leftCalInfo;
             base.leftCalInfo = SetCalInfo(base.rightCalInfo, calCtl.prev);
             // カレンダ作成
-            makeCalender(base.leftCalInfo.year, base.leftCalInfo.month, ref this.leftGroupBox, ref base.leftCalender);
-            makeCalender(base.rightCalInfo.year, base.rightCalInfo.month, ref this.rightGroupBox, ref base.rightCalender);
+            makeCalender(base.rightCalInfo.year, base.rightCalInfo.month, ref this.rightGroupBox, ref base.rightCalender, ref base.leftWeekLabel);
+            makeCalender(base.leftCalInfo.year, base.leftCalInfo.month, ref this.leftGroupBox, ref base.leftCalender, ref base.rightWeekLabel);
         }
 
         private void nextButton_Click(object sender, EventArgs e)
@@ -574,8 +588,8 @@ namespace ScheduleManager
             base.leftCalInfo = base.rightCalInfo;
             base.rightCalInfo = SetCalInfo(base.leftCalInfo, calCtl.next);
             // カレンダ作成
-            makeCalender(base.leftCalInfo.year, base.leftCalInfo.month, ref this.leftGroupBox, ref base.leftCalender);
-            makeCalender(base.rightCalInfo.year, base.rightCalInfo.month, ref this.rightGroupBox, ref base.rightCalender);
+            makeCalender(base.rightCalInfo.year, base.rightCalInfo.month, ref this.rightGroupBox, ref base.rightCalender, ref base.leftWeekLabel);
+            makeCalender(base.leftCalInfo.year, base.leftCalInfo.month, ref this.leftGroupBox, ref base.leftCalender, ref base.rightWeekLabel);
 
         }
     }

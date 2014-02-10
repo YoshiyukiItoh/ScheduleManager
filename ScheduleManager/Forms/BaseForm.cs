@@ -25,7 +25,8 @@ namespace ScheduleManager
         protected string selectedDate;
         // 編集する日付一覧
         protected string[] editDateList;
-        protected List<Label> weekLabel;
+        protected List<Label> leftWeekLabel;
+        protected List<Label> rightWeekLabel;
         // 表示する左カレンダデータ
         protected List<Control> leftCalender;
         protected CalInfo leftCalInfo;
