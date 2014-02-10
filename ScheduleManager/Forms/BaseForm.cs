@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using log4net;
 
 namespace ScheduleManager
 {
@@ -33,6 +34,8 @@ namespace ScheduleManager
         // 表示する右カレンダデータ
         protected List<Control> rightCalender;
         protected CalInfo rightCalInfo;
+
+        protected ILog logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public class CalInfo
         {

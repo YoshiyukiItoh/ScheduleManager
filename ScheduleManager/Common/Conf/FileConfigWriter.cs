@@ -28,25 +28,27 @@ namespace ScheduleManager
             string AFTER_START_TAG = String.Concat(new string[] { Common.ANGLE_BRACKET_BEGIN, Common.AFTER_TAG, Common.ANGLE_BRACKET_END });
             string AFTER_END_TAG = String.Concat(new string[] { Common.ANGLE_BRACKET_BEGIN, Common.SLASH, Common.AFTER_TAG, Common.ANGLE_BRACKET_END });
 
-            StreamWriter sWriter = new StreamWriter(filePath, false, encoding);
-
-            // 午前書き込み
-            sWriter.Write(FORE_START_TAG + Common.LINE_SEPARATOR);
-            foreach(TaskElement te in taskConfig.ForeTaskBlock)
+            using (StreamWriter sWriter = new StreamWriter(filePath, false, encoding))
             {
-                sWriter.Write(te.Task + Common.LINE_SEPARATOR);
-            }
-            sWriter.Write(FORE_END_TAG + Common.LINE_SEPARATOR);
 
-            // 午後書き込み
-            sWriter.Write(AFTER_START_TAG + Common.LINE_SEPARATOR);
-            foreach (TaskElement te in taskConfig.AfterTaskBlock)
-            {
-                sWriter.Write(te.Task + Common.LINE_SEPARATOR);
-            }
-            sWriter.Write(AFTER_END_TAG + Common.LINE_SEPARATOR);
+                // 午前書き込み
+                sWriter.Write(FORE_START_TAG + Common.LINE_SEPARATOR);
+                foreach (TaskElement te in taskConfig.ForeTaskBlock)
+                {
+                    sWriter.Write(te.Task + Common.LINE_SEPARATOR);
+                }
+                sWriter.Write(FORE_END_TAG + Common.LINE_SEPARATOR);
 
-            sWriter.Close();
+                // 午後書き込み
+                sWriter.Write(AFTER_START_TAG + Common.LINE_SEPARATOR);
+                foreach (TaskElement te in taskConfig.AfterTaskBlock)
+                {
+                    sWriter.Write(te.Task + Common.LINE_SEPARATOR);
+                }
+                sWriter.Write(AFTER_END_TAG + Common.LINE_SEPARATOR);
+
+                sWriter.Close();
+            }
         }
 
         /// <summary>
@@ -59,8 +61,8 @@ namespace ScheduleManager
         {
             StreamWriter sWriter = new StreamWriter(filePath, false, encoding);
 
-            // TODO 内容書き込み
-            foreach(string task in alltask)
+            // 内容書き込み
+            foreach (string task in alltask)
             {
                 sWriter.Write(task + Common.LINE_SEPARATOR);
             }

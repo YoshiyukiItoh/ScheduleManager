@@ -13,6 +13,9 @@ namespace ScheduleManager
         [STAThread]
         static void Main()
         {
+            log4net.ILog logger
+                = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            logger.Info("アプリケーション起動");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());

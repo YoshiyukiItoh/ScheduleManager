@@ -18,6 +18,7 @@ namespace ScheduleManager
         /// </summary>
         public MainForm()
         {
+            logger.Info("MainForm起動");
             InitializeComponent();
             Init();
             createCalender();
@@ -155,6 +156,7 @@ namespace ScheduleManager
                     }
                 }
             }
+            logger.Info("当日午前タスク更新");
 
             // 午後
             // チェック済要素配列
@@ -185,12 +187,14 @@ namespace ScheduleManager
                     }
                 }
             }
+            logger.Info("当日午前タスク更新");
 
             // 当日タスク更新
             updateTodayTaskList();
             // ファイル反映
             FileConfig.writeTaskList(Path.Combine(new string[] { Common.TASKS_DIR, Common.TASK_FILES, base.selectedDate + Common.TXT_EXTENTION }), base.todayTask);
             updateDisplayItem();
+            logger.Info("当日タスクファイル更新 日付：" + base.selectedDate);
         }
 
         private void readTodayTaskList(string today)
