@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             this.todayTaskTab = new System.Windows.Forms.TabPage();
             this.afterAllCB = new System.Windows.Forms.CheckBox();
             this.foreAllCB = new System.Windows.Forms.CheckBox();
@@ -66,6 +67,11 @@
             this.Tue1Label = new System.Windows.Forms.Label();
             this.Mon1Label = new System.Windows.Forms.Label();
             this.Sun1Label = new System.Windows.Forms.Label();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.createNextDayScheduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,6 +81,7 @@
             this.CalViewTab.SuspendLayout();
             this.rightGroupBox.SuspendLayout();
             this.leftGroupBox.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -179,6 +186,7 @@
             // 
             // foreCBL
             // 
+            this.foreCBL.CheckOnClick = true;
             this.foreCBL.FormattingEnabled = true;
             this.foreCBL.Location = new System.Drawing.Point(20, 47);
             this.foreCBL.Name = "foreCBL";
@@ -269,6 +277,7 @@
             this.tabControl.Controls.Add(this.allTaskTab);
             this.tabControl.Controls.Add(this.todayTaskTab);
             this.tabControl.Controls.Add(this.CalViewTab);
+            this.tabControl.Controls.Add(this.tabPage1);
             this.tabControl.Location = new System.Drawing.Point(0, 22);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
@@ -481,6 +490,49 @@
             this.Sun1Label.TabIndex = 0;
             this.Sun1Label.Text = "日";
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.listView1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(476, 456);
+            this.tabPage1.TabIndex = 3;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // listView1
+            // 
+            this.listView1.CheckBoxes = true;
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3});
+            this.listView1.GridLines = true;
+            listViewItem1.StateImageIndex = 0;
+            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1});
+            this.listView1.LabelEdit = true;
+            this.listView1.Location = new System.Drawing.Point(73, 144);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(238, 97);
+            this.listView1.TabIndex = 0;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "項目";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "進捗";
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "終了時間";
+            // 
             // menuStrip1
             // 
             this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
@@ -527,6 +579,7 @@
             this.rightGroupBox.PerformLayout();
             this.leftGroupBox.ResumeLayout(false);
             this.leftGroupBox.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -577,6 +630,11 @@
         private System.Windows.Forms.Label Tue2Label;
         private System.Windows.Forms.Label Mon2Label;
         private System.Windows.Forms.Label Sun2Label;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
 
     }
 }

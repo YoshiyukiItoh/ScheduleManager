@@ -596,5 +596,10 @@ namespace ScheduleManager
             makeCalender(base.leftCalInfo.year, base.leftCalInfo.month, ref this.leftGroupBox, ref base.leftCalender, ref base.rightWeekLabel);
 
         }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
