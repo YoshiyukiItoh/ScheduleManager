@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            this.components = new System.ComponentModel.Container();
             this.todayTaskTab = new System.Windows.Forms.TabPage();
             this.afterAllCB = new System.Windows.Forms.CheckBox();
             this.foreAllCB = new System.Windows.Forms.CheckBox();
@@ -68,13 +68,17 @@
             this.Mon1Label = new System.Windows.Forms.Label();
             this.Sun1Label = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.foreLV = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.createNextDayScheduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel_nowTime = new System.Windows.Forms.ToolStripStatusLabel();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.todayTaskTab.SuspendLayout();
             this.allTaskTab.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -83,6 +87,7 @@
             this.leftGroupBox.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.statusStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // todayTaskTab
@@ -492,46 +497,52 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.listView1);
+            this.tabPage1.Controls.Add(this.foreLV);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(476, 456);
             this.tabPage1.TabIndex = 3;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "当日タスクNew";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // listView1
+            // foreLV
             // 
-            this.listView1.CheckBoxes = true;
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.foreLV.CheckBoxes = true;
+            this.foreLV.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
-            this.columnHeader3});
-            this.listView1.GridLines = true;
-            listViewItem1.StateImageIndex = 0;
-            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
-            this.listView1.LabelEdit = true;
-            this.listView1.Location = new System.Drawing.Point(73, 144);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(238, 97);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.columnHeader3,
+            this.columnHeader4});
+            this.foreLV.GridLines = true;
+            this.foreLV.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.foreLV.LabelEdit = true;
+            this.foreLV.Location = new System.Drawing.Point(8, 35);
+            this.foreLV.Name = "foreLV";
+            this.foreLV.Size = new System.Drawing.Size(460, 167);
+            this.foreLV.TabIndex = 0;
+            this.foreLV.UseCompatibleStateImageBehavior = false;
+            this.foreLV.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "項目";
+            this.columnHeader1.Width = 260;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "進捗";
+            this.columnHeader2.Width = 55;
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "終了時間";
+            this.columnHeader3.Text = "期限";
+            this.columnHeader3.Width = 70;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "終了時間";
+            this.columnHeader4.Width = 70;
             // 
             // menuStrip1
             // 
@@ -559,11 +570,33 @@
             this.createNextDayScheduleToolStripMenuItem.Text = "翌日のスケジュール作成";
             this.createNextDayScheduleToolStripMenuItem.Click += new System.EventHandler(this.createNextDayScheduleToolStripMenuItem_Click);
             // 
+            // statusStrip
+            // 
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel_nowTime});
+            this.statusStrip.Location = new System.Drawing.Point(0, 505);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(484, 23);
+            this.statusStrip.TabIndex = 2;
+            this.statusStrip.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel_nowTime
+            // 
+            this.toolStripStatusLabel_nowTime.Name = "toolStripStatusLabel_nowTime";
+            this.toolStripStatusLabel_nowTime.Size = new System.Drawing.Size(98, 18);
+            this.toolStripStatusLabel_nowTime.Text = "xx/xx xx:xx:xx";
+            // 
+            // timer
+            // 
+            this.timer.Enabled = true;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 502);
+            this.ClientSize = new System.Drawing.Size(484, 528);
+            this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -582,6 +615,8 @@
             this.tabPage1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.statusStrip.ResumeLayout(false);
+            this.statusStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -631,10 +666,14 @@
         private System.Windows.Forms.Label Mon2Label;
         private System.Windows.Forms.Label Sun2Label;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView foreLV;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.StatusStrip statusStrip;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_nowTime;
+        private System.Windows.Forms.Timer timer;
 
     }
 }

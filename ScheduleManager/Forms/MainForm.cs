@@ -38,6 +38,7 @@ namespace ScheduleManager
             // 当日タブ情報更新
             SetTodayTaskConfig(today);
             updateDisplayItem();
+            makeForeListView();
         }
 
         private void SetAllTasksConfig()
@@ -597,9 +598,26 @@ namespace ScheduleManager
 
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        private void makeForeListView()
         {
+            if (todayTask != null)
+            {
+                if (todayTask.ForeTaskBlock == null)
+                {
+                    return;
+                }
+                foreach(TaskElement te in todayTask.ForeTaskBlock)
+                {
+                    string[] element = {te.Task, "", "", ""};
+                    foreLV.Items.Add(new ListViewItem(element));
+                }
+            }
+        }
 
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            DateTime dt = DateTime.Now;
+            toolStripStatusLabel_nowTime.Text = dt.ToShortDateString() + " " + dt.ToLongTimeString();
         }
     }
 }
