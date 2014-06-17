@@ -79,6 +79,8 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel_nowTime = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.表示HToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DispFileDirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.todayTaskTab.SuspendLayout();
             this.allTaskTab.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -548,10 +550,11 @@
             // 
             this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1});
+            this.toolStripMenuItem1,
+            this.表示HToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(-7, -2);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(96, 26);
+            this.menuStrip1.Size = new System.Drawing.Size(251, 26);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -590,6 +593,21 @@
             // 
             this.timer.Enabled = true;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
+            // 表示HToolStripMenuItem
+            // 
+            this.表示HToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.DispFileDirToolStripMenuItem});
+            this.表示HToolStripMenuItem.Name = "表示HToolStripMenuItem";
+            this.表示HToolStripMenuItem.Size = new System.Drawing.Size(63, 22);
+            this.表示HToolStripMenuItem.Text = "表示(H)";
+            // 
+            // DispFileDirToolStripMenuItem
+            // 
+            this.DispFileDirToolStripMenuItem.Name = "DispFileDirToolStripMenuItem";
+            this.DispFileDirToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.DispFileDirToolStripMenuItem.Text = "予定ファイルの場所";
+            this.DispFileDirToolStripMenuItem.Click += new System.EventHandler(this.DispFileDirToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -674,6 +692,8 @@
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_nowTime;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.ToolStripMenuItem 表示HToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem DispFileDirToolStripMenuItem;
 
     }
 }
