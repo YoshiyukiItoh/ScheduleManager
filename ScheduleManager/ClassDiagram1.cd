@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ScheduleManager.Common" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAghGAEGFAAAAAAAABAgBoAAAAAAEAIICAAAAAAEgA=</HashCode>
+      <FileName>Common\Common.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScheduleManager.FileConfig" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAQCAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Conf\FileConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScheduleManager.FileConfigReader" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAABAAAEAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Common\Conf\FileConfigReader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScheduleManager.FileConfigWriter" Collapsed="true">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Conf\FileConfigWriter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScheduleManager.HolidayChecker" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <NestedTypes>
+      <Struct Name="ScheduleManager.HolidayChecker.HolidayInfo" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Common\HolidayChecker.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AgAAAAAQAAAAAAAAAAAEAAgAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Common\HolidayChecker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScheduleManager.TaskBlock" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\TaskBlock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScheduleManager.TaskElement" Collapsed="true">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAEIAAABAAAA=</HashCode>
+      <FileName>Data\TaskElement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScheduleManager.TaskList" Collapsed="true">
+    <Position X="11" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAEAEAQBAAAAAAAAAAAAAAQAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Data\TaskList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScheduleManager.BaseForm" Collapsed="true">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAUAAAABAACBAAAAAACIQAIAAAAAAAAABADBAA=</HashCode>
+      <FileName>Forms\BaseForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScheduleManager.CreateNewScheduleForm" Collapsed="true">
+    <Position X="2.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AECAACAwICRgAAAQACCIAAgCAAAAAAAQAAASAAQCAQE=</HashCode>
+      <FileName>Forms\CreateNewScheduleForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScheduleManager.EditAllTaskForm" Collapsed="true">
+    <Position X="5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACQAQBAAAAGAAAACAAAAAAICAAAQAAAAAAA=</HashCode>
+      <FileName>Forms\EditAllTaskForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScheduleManager.MainForm" Collapsed="true">
+    <Position X="0.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>A8WAwo0UI2hAgMCCQibIAKLGJ1IAJAJEBgBCUJBbAIU=</HashCode>
+      <FileName>Forms\MainForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScheduleManager.Program" Collapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScheduleManager.Properties.Resources" Collapsed="true">
+    <Position X="11" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScheduleManager.Properties.Settings" Collapsed="true">
+    <Position X="12.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="ScheduleManager.calCtl" Collapsed="true">
+    <Position X="7.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAIAAAA=</HashCode>
+      <FileName>Forms\BaseForm.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="メイリオ" Size="9" />
+</ClassDiagram>

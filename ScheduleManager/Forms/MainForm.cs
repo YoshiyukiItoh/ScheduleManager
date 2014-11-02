@@ -361,7 +361,9 @@ namespace ScheduleManager
             SetAllTasksConfig();
         }
 
-        // カレンダの作成処理
+        /// <summary>
+        /// カレンダの作成処理 
+        /// </summary>
         private void createCalender()
         {
             // 曜日ラベル作成
@@ -377,6 +379,14 @@ namespace ScheduleManager
             makeCalender(base.leftCalInfo.year, base.leftCalInfo.month, ref this.leftGroupBox, ref base.leftCalender, ref base.rightWeekLabel);
         }
 
+        /// <summary>
+        /// カレンダを作成します
+        /// </summary>
+        /// <param name="year"></param>
+        /// <param name="month"></param>
+        /// <param name="groupBox"></param>
+        /// <param name="lC"></param>
+        /// <param name="ltB"></param>
         private void makeCalender(int year, int month, ref GroupBox groupBox, ref List<Control> lC, ref List<Label> ltB)
         {
             // 既存コントロール削除
@@ -466,6 +476,9 @@ namespace ScheduleManager
             return retCalInfo;
         }
 
+        /// <summary>
+        /// 週のラベルを作成します
+        /// </summary>
         private void makeWeekLabel()
         {
             if (base.leftWeekLabel == null && base.rightWeekLabel == null)
@@ -596,6 +609,11 @@ namespace ScheduleManager
             }
         }
 
+        /// <summary>
+        /// 前月のカレンダを表示します
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PrevButton_Click(object sender, EventArgs e)
         {
             base.rightCalInfo = base.leftCalInfo;
@@ -605,6 +623,11 @@ namespace ScheduleManager
             makeCalender(base.leftCalInfo.year, base.leftCalInfo.month, ref this.leftGroupBox, ref base.leftCalender, ref base.rightWeekLabel);
         }
 
+        /// <summary>
+        /// 翌月のカレンダを表示します
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void nextButton_Click(object sender, EventArgs e)
         {
             base.leftCalInfo = base.rightCalInfo;
@@ -631,6 +654,11 @@ namespace ScheduleManager
             }
         }
 
+        /// <summary>
+        /// 時間表示の処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void timer_Tick(object sender, EventArgs e)
         {
             DateTime dt = DateTime.Now;
