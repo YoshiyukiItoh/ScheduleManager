@@ -392,16 +392,33 @@ namespace ScheduleManager
 
             for (int i = 1; i <= e; i++, w++)
             {
-                TextBox tBox = new TextBox();
-                tBox.Text = String.Format("{0:D2}", i);
-                tBox.Location = new Point(7 + (w % 7) * 30, 30 + (w / 7) * 21);
-                tBox.Size = new Size(17, 7);
-                if (w % 7 == 0) tBox.ForeColor = Color.Red;
-                else if (w % 7 == 6) tBox.ForeColor = Color.Blue;
-                else tBox.ForeColor = Color.Black;
-                lC.Add(tBox);
+                Button bt = new Button();
+                bt.Text = String.Format("{0:D2}", i);
+                bt.Location = new Point(3 + (w % 7) * 30, 30 + (w / 7) * 21);
+                bt.Size = new Size(25, 20);
+                if (w % 7 == 0) bt.ForeColor = Color.Red;
+                else if (w % 7 == 6) bt.ForeColor = Color.Blue;
+                else bt.ForeColor = Color.Black;
+                bt.Click += new EventHandler(calButton_Click);
+                bt.Name = String.Format("{0}-{1:D2}-{2:D2}", year, month,i);
+                lC.Add(bt);
             }
             groupBox.Controls.AddRange(lC.ToArray());
+        }
+
+        //Buttonのクリックイベントハンドラ
+        private void calButton_Click(object sender, EventArgs e)
+        {
+            string selectDay = ((System.Windows.Forms.Button)sender).Name;
+            // ファイルがあるか確認する
+            TaskList taskList = null;
+            string readFilePath = Path.Combine(new string[] { Common.TASKS_DIR, Common.TASK_FILES, selectDay + Common.TXT_EXTENTION });
+            if (File.Exists(readFilePath))
+            {
+                taskList = FileConfig.readTaskList(readFilePath);
+            }
+            CreateNewScheduleForm cnsf = new CreateNewScheduleForm(taskList, selectDay);
+            cnsf.ShowDialog();
         }
 
         /// <summary>
