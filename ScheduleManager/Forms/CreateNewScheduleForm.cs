@@ -122,6 +122,7 @@ namespace ScheduleManager
             TaskBlock taskBlock = new TaskBlock();
             foreach (string task in tasks)
             {
+                if (task.Replace(" ","").Replace("　", "") == "") continue;
                 bool checkstate = task.IndexOf(Common.STATE_IMPERFECT) >= 0 ? false : true;
                 taskBlock.Add(new TaskElement(task, checkstate));
             }

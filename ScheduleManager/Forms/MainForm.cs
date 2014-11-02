@@ -622,7 +622,7 @@ namespace ScheduleManager
 
         private void DispFileDirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(Path.Combine(new string[] { Common.TASKS_DIR, Common.TASK_FILES }));
+            System.Diagnostics.Process.Start(Path.Combine(new string[] {Common.TASKS_DIR, Common.TASK_FILES}));
         }
     }
 }
