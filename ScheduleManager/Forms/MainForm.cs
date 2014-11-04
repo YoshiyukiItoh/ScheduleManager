@@ -557,10 +557,11 @@ namespace ScheduleManager
             for (int i = 0; i < base.todayTask.ForeTaskBlock.Count; i++)
             {
                 if (checkflg) base.todayTask.ForeTaskBlock[i].CheckState = true;
-                else
-                {
-                    if (base.todayTask.ForeTaskBlock[i].Task.IndexOf(Common.STATE_COMPLETE) < 0) base.todayTask.ForeTaskBlock[i].CheckState = false;
-                }
+                else base.todayTask.ForeTaskBlock[i].CheckState = false;
+                //else
+                //{
+                //    if (base.todayTask.ForeTaskBlock[i].Task.IndexOf(Common.STATE_COMPLETE) < 0) base.todayTask.ForeTaskBlock[i].CheckState = false;
+                //}
             }
 
             updateRowItems(base.todayTask.ForeTaskBlock, ref foreCBL);
@@ -583,10 +584,11 @@ namespace ScheduleManager
             for (int i = 0; i < base.todayTask.AfterTaskBlock.Count; i++)
             {
                 if (checkflg) base.todayTask.AfterTaskBlock[i].CheckState = true;
-                else
-                {
-                    if (base.todayTask.AfterTaskBlock[i].Task.IndexOf(Common.STATE_COMPLETE) < 0) base.todayTask.AfterTaskBlock[i].CheckState = false;
-                }
+                else base.todayTask.AfterTaskBlock[i].CheckState = false;
+                //else
+                //{
+                //    if (base.todayTask.AfterTaskBlock[i].Task.IndexOf(Common.STATE_COMPLETE) < 0) base.todayTask.AfterTaskBlock[i].CheckState = false;
+                //}
             }
 
             updateRowItems(base.todayTask.AfterTaskBlock, ref afterCBL);
