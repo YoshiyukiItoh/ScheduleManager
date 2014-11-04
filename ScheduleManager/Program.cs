@@ -31,7 +31,11 @@ namespace ScheduleManager
             }
             catch (Exception e)
             {
-                logger.Error(e.Message);
+                logger.Error(e.StackTrace);
+                MessageBox.Show("プログラムが異常終了しました\nログファイルを確認してください"
+                              , "エラー"
+                              , MessageBoxButtons.OK
+                              , MessageBoxIcon.Error);
             }
         }
     }

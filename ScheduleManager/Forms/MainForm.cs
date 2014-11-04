@@ -421,7 +421,7 @@ namespace ScheduleManager
         {
             string selectDay = ((System.Windows.Forms.Button)sender).Name;
             // ファイルがあるか確認する
-            TaskList taskList = null;
+            TaskList taskList = new TaskList();
             string readFilePath = Path.Combine(new string[] { Common.TASKS_DIR, Common.TASK_FILES, selectDay + Common.TXT_EXTENTION });
             if (File.Exists(readFilePath))
             {

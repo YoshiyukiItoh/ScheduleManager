@@ -33,20 +33,23 @@ namespace ScheduleManager
             Init();
         }
 
-        /// <summary>
-        /// デストラクタ
-        /// </summary>
-        ~CreateNewScheduleForm()
-        {
-            if (todayTask.ForeTaskBlock != null)
-            {
-                base.todayTask.ForeTaskBlock.Clear();
-            }
-            if (todayTask.AfterTaskBlock != null)
-            {
-                base.todayTask.AfterTaskBlock.Clear();
-            }
-        }
+        ///// <summary>
+        ///// デストラクタ
+        ///// </summary>
+        //~CreateNewScheduleForm()
+        //{
+        //    if (todayTask != null)
+        //    {
+        //        if (todayTask.ForeTaskBlock != null)
+        //        {
+        //            base.todayTask.ForeTaskBlock.Clear();
+        //        }
+        //        if (todayTask.AfterTaskBlock != null)
+        //        {
+        //            base.todayTask.AfterTaskBlock.Clear();
+        //        }
+        //    }
+        //}
 
         /// <summary>
         /// 画面表示時に初期化を行います。
@@ -122,7 +125,7 @@ namespace ScheduleManager
             TaskBlock taskBlock = new TaskBlock();
             foreach (string task in tasks)
             {
-                if (task.Replace(" ","").Replace("　", "") == "") continue;
+                if (task.Replace(" ", "").Replace("　", "") == "") continue;
                 bool checkstate = task.IndexOf(Common.STATE_IMPERFECT) >= 0 ? false : true;
                 taskBlock.Add(new TaskElement(task, checkstate));
             }
