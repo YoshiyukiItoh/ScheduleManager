@@ -50,9 +50,10 @@ namespace ScheduleManager
         /// <returns>タスクファイル名の一覧</returns>
         public static string[] getTaskFiles()
         {
+            createWorkDir();
             string[] files = Directory.GetFiles(
-                                        Path.Combine(new string[] {Common.TASKS_DIR, Common.TASK_FILES}), 
-                                        "*", 
+                                        Path.Combine(new string[] { Common.TASKS_DIR, Common.TASK_FILES }),
+                                        "*",
                                         SearchOption.AllDirectories);
             Array.Sort(files);
             List<string> fileList = new List<string>(files);
@@ -63,7 +64,7 @@ namespace ScheduleManager
             for (int i = 0; i < files.Length; i++)
             {
                 int len = files[i].Length;
-                files[i] = files[i].Substring(16,10);
+                files[i] = files[i].Substring(16, 10);
             }
 
             return files;
@@ -86,7 +87,7 @@ namespace ScheduleManager
                 return String.Empty;
             }
             StringBuilder sb = new StringBuilder();
-            foreach(TaskElement taskElement in taskBlock)
+            foreach (TaskElement taskElement in taskBlock)
             {
                 sb.Append(taskElement.Task + Common.LINE_SEPARATOR);
             }
@@ -96,7 +97,7 @@ namespace ScheduleManager
         public static string StringAryToString(string[] stringAry)
         {
             StringBuilder sb = new StringBuilder();
-            foreach(string str in stringAry)
+            foreach (string str in stringAry)
             {
                 sb.Append(str + Common.LINE_SEPARATOR);
             }
@@ -183,6 +184,18 @@ namespace ScheduleManager
             }
 
             return rc;
+        }
+
+        /// <summary>
+        /// 作業ディレクトリの作成をする
+        /// </summary>
+        private static void createWorkDir()
+        {
+            string workPath = Path.Combine(new string[] { Common.TASKS_DIR, Common.TASK_FILES });
+            if (!File.Exists(workPath))
+            {
+                Directory.CreateDirectory(workPath);
+            }
         }
     }
 }
