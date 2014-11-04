@@ -14,14 +14,22 @@ namespace ScheduleManager
         static void Main()
         {
             log4net.ILog logger
-                    = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+                = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
             try
             {
-                logger.Info("アプリケーション起動");
-                Application.EnableVisualStyles();
-                Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new MainForm());
-            } catch (Exception e)
+                if (!DuplicateCheck.ShowPrevProcess())
+                {
+                    logger.Info("アプリケーション起動");
+                    Application.EnableVisualStyles();
+                    Application.SetCompatibleTextRenderingDefault(false);
+                    Application.Run(new MainForm());
+                }
+                else
+                {
+                    return;
+                }
+            }
+            catch (Exception e)
             {
                 logger.Error(e.Message);
             }
