@@ -48,6 +48,7 @@
             this.allTaskTB.Location = new System.Drawing.Point(12, 28);
             this.allTaskTB.Multiline = true;
             this.allTaskTB.Name = "allTaskTB";
+            this.allTaskTB.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.allTaskTB.Size = new System.Drawing.Size(460, 411);
             this.allTaskTB.TabIndex = 1;
             // 
