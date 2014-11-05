@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.allTaskTB = new System.Windows.Forms.TextBox();
             this.updateButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.allTaskTB = new ScheduleManager.CTextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -42,15 +42,6 @@
             this.label1.Size = new System.Drawing.Size(123, 12);
             this.label1.TabIndex = 0;
             this.label1.Text = "全体タスクを編集します。";
-            // 
-            // allTaskTB
-            // 
-            this.allTaskTB.Location = new System.Drawing.Point(12, 28);
-            this.allTaskTB.Multiline = true;
-            this.allTaskTB.Name = "allTaskTB";
-            this.allTaskTB.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.allTaskTB.Size = new System.Drawing.Size(460, 411);
-            this.allTaskTB.TabIndex = 1;
             // 
             // updateButton
             // 
@@ -72,14 +63,23 @@
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
+            // allTaskTB
+            // 
+            this.allTaskTB.Location = new System.Drawing.Point(12, 29);
+            this.allTaskTB.Multiline = true;
+            this.allTaskTB.Name = "allTaskTB";
+            this.allTaskTB.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.allTaskTB.Size = new System.Drawing.Size(460, 410);
+            this.allTaskTB.TabIndex = 4;
+            // 
             // EditAllTaskForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 472);
+            this.Controls.Add(this.allTaskTB);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.updateButton);
-            this.Controls.Add(this.allTaskTB);
             this.Controls.Add(this.label1);
             this.Name = "EditAllTaskForm";
             this.Text = "EditAllTaskForm";
@@ -91,8 +91,8 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox allTaskTB;
         private System.Windows.Forms.Button updateButton;
         private System.Windows.Forms.Button cancelButton;
+        private CTextBox allTaskTB;
     }
 }

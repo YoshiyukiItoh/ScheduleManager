@@ -30,11 +30,11 @@
         {
             this.cancelButton = new System.Windows.Forms.Button();
             this.createButton = new System.Windows.Forms.Button();
-            this.afterTB = new System.Windows.Forms.TextBox();
             this.afterLabel = new System.Windows.Forms.Label();
-            this.foreTB = new System.Windows.Forms.TextBox();
             this.foreLabel = new System.Windows.Forms.Label();
             this.createDateLabel = new System.Windows.Forms.Label();
+            this.foreTB = new ScheduleManager.CTextBox();
+            this.afterTB = new ScheduleManager.CTextBox();
             this.SuspendLayout();
             // 
             // cancelButton
@@ -58,16 +58,6 @@
             this.createButton.UseVisualStyleBackColor = true;
             this.createButton.Click += new System.EventHandler(this.createButton_Click);
             // 
-            // afterTB
-            // 
-            this.afterTB.Location = new System.Drawing.Point(17, 250);
-            this.afterTB.Multiline = true;
-            this.afterTB.Name = "afterTB";
-            this.afterTB.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.afterTB.Size = new System.Drawing.Size(446, 172);
-            this.afterTB.TabIndex = 4;
-            this.afterTB.TextChanged += new System.EventHandler(this.afterTB_TextChanged);
-            // 
             // afterLabel
             // 
             this.afterLabel.AutoSize = true;
@@ -76,16 +66,6 @@
             this.afterLabel.Size = new System.Drawing.Size(29, 12);
             this.afterLabel.TabIndex = 3;
             this.afterLabel.Text = "午後";
-            // 
-            // foreTB
-            // 
-            this.foreTB.Location = new System.Drawing.Point(15, 55);
-            this.foreTB.Multiline = true;
-            this.foreTB.Name = "foreTB";
-            this.foreTB.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.foreTB.Size = new System.Drawing.Size(448, 172);
-            this.foreTB.TabIndex = 2;
-            this.foreTB.TextChanged += new System.EventHandler(this.foreTB_TextChanged);
             // 
             // foreLabel
             // 
@@ -105,16 +85,34 @@
             this.createDateLabel.TabIndex = 0;
             this.createDateLabel.Text = "の予定を作成します。";
             // 
+            // foreTB
+            // 
+            this.foreTB.Location = new System.Drawing.Point(15, 55);
+            this.foreTB.Multiline = true;
+            this.foreTB.Name = "foreTB";
+            this.foreTB.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.foreTB.Size = new System.Drawing.Size(448, 172);
+            this.foreTB.TabIndex = 7;
+            // 
+            // afterTB
+            // 
+            this.afterTB.Location = new System.Drawing.Point(15, 250);
+            this.afterTB.Multiline = true;
+            this.afterTB.Name = "afterTB";
+            this.afterTB.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.afterTB.Size = new System.Drawing.Size(448, 172);
+            this.afterTB.TabIndex = 8;
+            // 
             // CreateNewScheduleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 472);
+            this.Controls.Add(this.afterTB);
+            this.Controls.Add(this.foreTB);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.createButton);
-            this.Controls.Add(this.afterTB);
             this.Controls.Add(this.afterLabel);
-            this.Controls.Add(this.foreTB);
             this.Controls.Add(this.foreLabel);
             this.Controls.Add(this.createDateLabel);
             this.Name = "CreateNewScheduleForm";
@@ -128,10 +126,10 @@
 
         private System.Windows.Forms.Label createDateLabel;
         private System.Windows.Forms.Label foreLabel;
-        private System.Windows.Forms.TextBox foreTB;
         private System.Windows.Forms.Label afterLabel;
-        private System.Windows.Forms.TextBox afterTB;
         private System.Windows.Forms.Button createButton;
         private System.Windows.Forms.Button cancelButton;
+        private CTextBox foreTB;
+        private CTextBox afterTB;
     }
 }

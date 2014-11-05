@@ -74,6 +74,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\CCtrl\CTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Common\DuplicateCheck.cs" />
     <Compile Include="Common\HolidayChecker.cs" />
     <Compile Include="Data\TaskBlock.cs" />
