@@ -93,6 +93,7 @@
             this.foreTB.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.foreTB.Size = new System.Drawing.Size(448, 172);
             this.foreTB.TabIndex = 7;
+            this.foreTB.TextChanged += new System.EventHandler(this.foreTB_TextChanged);
             // 
             // afterTB
             // 
@@ -102,6 +103,7 @@
             this.afterTB.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.afterTB.Size = new System.Drawing.Size(448, 172);
             this.afterTB.TabIndex = 8;
+            this.afterTB.TextChanged += new System.EventHandler(this.afterTB_TextChanged);
             // 
             // CreateNewScheduleForm
             // 
