@@ -667,6 +667,11 @@ namespace ScheduleManager
             toolStripStatusLabel_nowTime.Text = dt.ToShortDateString() + " " + dt.ToLongTimeString();
         }
 
+        /// <summary>
+        /// 予定ファイルのあるディレクトリを開きます。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DispFileDirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(Path.Combine(new string[] {Common.TASKS_DIR, Common.TASK_FILES}));
