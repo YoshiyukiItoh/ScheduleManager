@@ -381,6 +381,8 @@ namespace ScheduleManager
 
         /// <summary>
         /// カレンダを作成します
+        /// TODO クリックで下のコントロールにタスク表示
+        /// 　　 ダブルクリックでタスク作成Form表示
         /// </summary>
         /// <param name="year"></param>
         /// <param name="month"></param>
