@@ -34,6 +34,8 @@ namespace ScheduleManager
         public const string STATE_COMPLETE = "■";
         // タスク未完了状態
         public const string STATE_IMPERFECT = "□";
+        // date format
+        public const string DATE_FORMAT = "yyyy-MM-dd";
 
         /// <summary>
         /// システム日付を取得します。
