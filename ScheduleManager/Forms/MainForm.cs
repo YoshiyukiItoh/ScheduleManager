@@ -383,6 +383,7 @@ namespace ScheduleManager
         /// カレンダを作成します
         /// TODO クリックで下のコントロールにタスク表示
         /// 　　 ダブルクリックでタスク作成Form表示
+        /// 　　 http://msdn.microsoft.com/ja-jp/library/ms171543%28v=vs.110%29.aspx
         /// </summary>
         /// <param name="year"></param>
         /// <param name="month"></param>
