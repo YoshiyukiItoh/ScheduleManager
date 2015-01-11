@@ -399,6 +399,7 @@ namespace ScheduleManager
             e = Common.month_last_day(year, month);       /* 月の最終日を求める */
             lC = new List<Control>();
             lC.AddRange(ltB.ToArray());
+            DateTime baseDt =DateTime.ParseExact(this.todayDate,Common.DATE_FORMAT, null);
 
             for (int i = 1; i <= e; i++, w++)
             {
@@ -409,6 +410,16 @@ namespace ScheduleManager
                 if (w % 7 == 0) bt.ForeColor = Color.Red;
                 else if (w % 7 == 6) bt.ForeColor = Color.Blue;
                 else bt.ForeColor = Color.Black;
+                string dayStr = String.Format("{0}-{1:D2}-{2:D2}", year, month, i);
+                DateTime targetDt = DateTime.ParseExact(dayStr, Common.DATE_FORMAT, null);
+                if (baseDt > targetDt)
+                {
+                    bt.BackColor = Color.Gray;
+                }
+                else if (baseDt == targetDt) 
+                {
+                    bt.BackColor = Color.PaleTurquoise;
+                }
                 bt.Click += new EventHandler(calButton_Click);
                 bt.Name = String.Format("{0}-{1:D2}-{2:D2}", year, month,i);
                 lC.Add(bt);
