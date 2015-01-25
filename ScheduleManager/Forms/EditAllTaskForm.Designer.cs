@@ -82,6 +82,7 @@
             this.Controls.Add(this.updateButton);
             this.Controls.Add(this.label1);
             this.Name = "EditAllTaskForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "EditAllTaskForm";
             this.ResumeLayout(false);
             this.PerformLayout();
