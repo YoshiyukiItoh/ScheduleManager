@@ -73,6 +73,23 @@ namespace ScheduleManager
             return files;
         }
 
+        /// <summary>
+        /// 全タスクファイル名を除くタスクファイル名の一覧を返却します。
+        /// isAsc : true -> 昇順で10件取得(古いもの10件)
+        ///        false -> 降順で10件取得(新しいもの10件)
+        /// </summary>
+        /// <returns>タスクファイル名の一覧</returns>
+        public static string[] getTaskFiles(int count,bool isAsc)
+        {
+
+            string[] files = getTaskFiles();
+            Array.Sort(files);
+            if ( !isAsc ) Array.Reverse(files);
+            files = files.Take(count).ToArray();
+            if (!isAsc) Array.Reverse(files);
+            return files;
+        }
+
         private static bool checkLine(string str)
         {
             return str == Common.ALL_TASK_FILE;
