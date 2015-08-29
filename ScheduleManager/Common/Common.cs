@@ -43,7 +43,8 @@ namespace ScheduleManager
         /// <returns>日付(yyyy-mm-dd)</returns>
         public static string getSystemDate()
         {
-            return DateTime.Today.ToString().Substring(0, 10).Replace("/", "-");
+            DateTime dt = DateTime.Today;
+            return String.Format("{0}-{1:D2}-{2:D2}",dt.Year,dt.Month,dt.Day);
         }
 
         /// <summary>
