@@ -82,7 +82,7 @@ namespace ScheduleManager
             }
 
             // タスクファイル名一覧取得
-            string[] taskFiles = Common.getTaskFiles();
+            string[] taskFiles = Common.getTaskFiles(30,false);
             // 当日が配列に含まれなければ
             if (Array.IndexOf(taskFiles, today) < 0)
             {
@@ -96,6 +96,11 @@ namespace ScheduleManager
             }
 
             Array.Sort(editDateList);
+            int tmpSkipSize = Array.IndexOf(editDateList, today) - 7;
+            int skipSize = 0;
+            if (tmpSkipSize > 0) skipSize = tmpSkipSize;
+            editDateList = editDateList.Skip(skipSize).Take(editDateList.Count() - skipSize).ToArray();
+
             // 要素を一時削除
             this.oneDayCB.Items.Clear();
             // プルダウンに日付一覧を追加
